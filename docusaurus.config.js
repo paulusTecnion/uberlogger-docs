@@ -4,7 +4,7 @@
 // There are various equivalent ways to declare your Docusaurus config.
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
-import { themes as prismThemes } from "prism-react-renderer";
+const { DOCUSAURUS_VERSION } = require("@docusaurus/utils");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -39,8 +39,11 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          path: "docs/01-Manual",
           routeBasePath: "/", // Serve the docs at the site's root
           sidebarPath: "./sidebars.js",
+          docLayoutComponent: "@theme/DocPage",
+          docItemComponent: "@theme/ApiItem",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
         },
@@ -51,6 +54,33 @@ const config = {
       }),
     ],
   ],
+  plugins: [
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "api",
+        path: "docs/02-API",
+        routeBasePath: "api",
+        sidebarPath: "./sidebars.js",
+        // ... other options
+      },
+    ],
+    [
+      "docusaurus-plugin-openapi-docs",
+      {
+        id: "api", // plugin id
+        docsPluginId: "classic", // id of plugin-content-docs or preset for rendering docs
+        config: {
+          uberlogger: {
+            // the <id> referenced when running CLI commands
+            specPath: "src/api-src/uberlogger.yaml", // path to OpenAPI spec, URLs supported
+            outputDir: "docs/02-API/", // output directory for generated files
+          },
+        },
+      },
+    ],
+  ],
+  themes: ["docusaurus-theme-openapi-docs"],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
@@ -58,17 +88,28 @@ const config = {
       // Replace with your project's social card
       image: "img/docusaurus-social-card.jpg",
       navbar: {
-        title: "My Site",
+        title: "Uberlogger",
+
         logo: {
-          alt: "My Site Logo",
+          alt: "Uberlogger",
           src: "img/logo.svg",
         },
         items: [
           {
-            type: "docSidebar",
-            sidebarId: "tutorialSidebar",
+            to: "/",
             position: "left",
-            label: "Tutorial",
+            label: "Manual",
+            activeBaseRegex: "/",
+          },
+          {
+            to: "api",
+            position: "left",
+            label: "API",
+            activeBaseRegex: "/api",
+          },
+          {
+            type: "docsVersionDropdown",
+            position: "right",
           },
         ],
       },
@@ -76,52 +117,41 @@ const config = {
         style: "dark",
         links: [
           {
-            title: "Docs",
+            title: "Uberlogger",
             items: [
               {
-                label: "Tutorial",
-                to: "/docs/intro",
-              },
-            ],
-          },
-          {
-            title: "Community",
-            items: [
-              {
-                label: "Stack Overflow",
-                href: "https://stackoverflow.com/questions/tagged/docusaurus",
+                label: "Home",
+                href: "https://www.uberlogger.com/",
               },
               {
-                label: "Discord",
-                href: "https://discordapp.com/invite/docusaurus",
+                label: "Support",
+                href: "https://www.uberlogger.com/support",
               },
               {
-                label: "Twitter",
-                href: "https://twitter.com/docusaurus",
-              },
-            ],
-          },
-          {
-            title: "More",
-            items: [
-              {
-                label: "Blog",
-                to: "/blog",
-              },
-              {
-                label: "GitHub",
-                href: "https://github.com/facebook/docusaurus",
+                label: "About",
+                href: "https://www.uberlogger.com/about",
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Uberlogger. Built with Docusaurus.`,
       },
+
       prism: {
-        theme: prismThemes.github,
-        darkTheme: prismThemes.dracula,
+        theme: null,
+        darkTheme: null,
       },
     }),
 };
 
-export default config;
+async function createConfig() {
+  const lightTheme = (await import("./src/utils/prismLight.mjs")).default;
+  const darkTheme = (await import("./src/utils/prismDark.mjs")).default;
+  // @ts-expect-error: we know it exists, right
+  config.themeConfig.prism.theme = lightTheme;
+  // @ts-expect-error: we know it exists, right
+  config.themeConfig.prism.darkTheme = darkTheme;
+  return config;
+}
+
+module.exports = createConfig;
