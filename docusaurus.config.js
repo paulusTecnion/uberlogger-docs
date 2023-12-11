@@ -1,37 +1,22 @@
 // @ts-check
-// `@type` JSDoc annotations allow editor autocompletion and type checking
-// (when paired with `@ts-check`).
-// There are various equivalent ways to declare your Docusaurus config.
-// See: https://docusaurus.io/docs/api/docusaurus-config
+// Note: type annotations allow type checking and IDEs autocompletion
 
-const { DOCUSAURUS_VERSION } = require("@docusaurus/utils");
+const lightCodeTheme = require("prism-react-renderer/themes/github");
+const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "Uberlogger docs",
-  favicon: "img/favicon.ico",
-
-  // Set the production url of your site here
+  title: "Uberlogger",
   url: "https://docs.uberlogger.com",
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/",
+  onBrokenLinks: "throw",
+  onBrokenMarkdownLinks: "warn",
+  favicon: "img/favicon.ico",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: "paulusTecnion", // Usually your GitHub org/user name.
   projectName: "uberlogger-docs", // Usually your repo name.
-  trailingSlash: false,
-  onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "warn",
-
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
-  i18n: {
-    defaultLocale: "en",
-    locales: ["en"],
-  },
 
   presets: [
     [
@@ -39,77 +24,48 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          path: "docs/01-Manual",
-          routeBasePath: "/", // Serve the docs at the site's root
-          sidebarPath: "./sidebars.js",
-          docLayoutComponent: "@theme/DocPage",
-          docItemComponent: "@theme/ApiItem",
+          sidebarPath: require.resolve("./sidebars.js"),
+          routeBasePath: "/",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
+          editUrl:
+            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+          docLayoutComponent: "@theme/DocPage",
+          docItemComponent: "@theme/ApiItem", // Derived from docusaurus-theme-openapi
         },
         blog: false,
         theme: {
-          customCss: "./src/css/custom.css",
+          customCss: require.resolve("./src/css/custom.css"),
         },
       }),
     ],
   ],
-  plugins: [
-    [
-      "@docusaurus/plugin-content-docs",
-      {
-        id: "api",
-        path: "docs/02-API",
-        routeBasePath: "api",
-        sidebarPath: "./sidebars.js",
-        // ... other options
-      },
-    ],
-    [
-      "docusaurus-plugin-openapi-docs",
-      {
-        id: "api", // plugin id
-        docsPluginId: "classic", // id of plugin-content-docs or preset for rendering docs
-        config: {
-          uberlogger: {
-            // the <id> referenced when running CLI commands
-            specPath: "src/api-src/uberlogger.yaml", // path to OpenAPI spec, URLs supported
-            outputDir: "docs/02-API/", // output directory for generated files
-          },
-        },
-      },
-    ],
-  ],
-  themes: ["docusaurus-theme-openapi-docs"],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      // Replace with your project's social card
-      image: "img/docusaurus-social-card.jpg",
+      docs: {
+        sidebar: {
+          hideable: true,
+        },
+      },
       navbar: {
         title: "Uberlogger",
-
         logo: {
           alt: "Uberlogger",
           src: "img/logo.svg",
         },
         items: [
           {
-            to: "/",
+            type: "doc",
             position: "left",
+            docId: "Manual/manual",
             label: "Manual",
-            activeBaseRegex: "/",
           },
           {
-            to: "api",
-            position: "left",
             label: "API",
-            activeBaseRegex: "/api",
-          },
-          {
-            type: "docsVersionDropdown",
-            position: "right",
+            position: "left",
+            to: "/api/",
           },
         ],
       },
@@ -117,41 +73,77 @@ const config = {
         style: "dark",
         links: [
           {
-            title: "Uberlogger",
+            title: "Docs",
             items: [
               {
-                label: "Home",
-                href: "https://www.uberlogger.com/",
+                label: "Manual",
+                to: "/",
+              },
+            ],
+          },
+          {
+            title: "Community",
+            items: [
+              {
+                label: "Stack Overflow",
+                href: "https://stackoverflow.com/questions/tagged/docusaurus",
               },
               {
-                label: "Support",
-                href: "https://www.uberlogger.com/support",
+                label: "Discord",
+                href: "https://discordapp.com/invite/docusaurus",
               },
               {
-                label: "About",
-                href: "https://www.uberlogger.com/about",
+                label: "Twitter",
+                href: "https://twitter.com/docusaurus",
+              },
+            ],
+          },
+          {
+            title: "More",
+            items: [
+              {
+                label: "Blog",
+                to: "/blog",
+              },
+              {
+                label: "GitHub",
+                href: "https://github.com/facebook/docusaurus",
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Uberlogger. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
       },
-
       prism: {
-        theme: null,
-        darkTheme: null,
+        theme: lightCodeTheme,
+        darkTheme: darkCodeTheme,
+        additionalLanguages: ["ruby", "csharp", "php"],
       },
     }),
+
+  plugins: [
+    [
+      "docusaurus-plugin-openapi-docs",
+      {
+        id: "openapi",
+        docsPluginId: "classic",
+        config: {
+          petstore: {
+            specPath: "examples/petstore.yaml",
+            outputDir: "docs/API",
+            downloadUrl:
+              "https://raw.githubusercontent.com/PaloAltoNetworks/docusaurus-template-openapi-docs/main/examples/petstore.yaml",
+            sidebarOptions: {
+              groupPathsBy: "tag",
+              categoryLinkSource: "tag",
+            },
+          },
+        },
+      },
+    ],
+  ],
+
+  themes: ["docusaurus-theme-openapi-docs"],
 };
 
-async function createConfig() {
-  const lightTheme = (await import("./src/utils/prismLight.mjs")).default;
-  const darkTheme = (await import("./src/utils/prismDark.mjs")).default;
-  // @ts-expect-error: we know it exists, right
-  config.themeConfig.prism.theme = lightTheme;
-  // @ts-expect-error: we know it exists, right
-  config.themeConfig.prism.darkTheme = darkTheme;
-  return config;
-}
-
-module.exports = createConfig;
+module.exports = config;
