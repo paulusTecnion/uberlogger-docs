@@ -17,7 +17,7 @@ const config = {
   // If you aren't using GitHub pages, you don't need these.
   organizationName: "paulusTecnion", // Usually your GitHub org/user name.
   projectName: "uberlogger-docs", // Usually your repo name.
-
+  trailingSlash: false,
   presets: [
     [
       "classic",
@@ -102,10 +102,6 @@ const config = {
             title: "More",
             items: [
               {
-                label: "Blog",
-                to: "/blog",
-              },
-              {
                 label: "GitHub",
                 href: "https://github.com/facebook/docusaurus",
               },
@@ -130,7 +126,7 @@ const config = {
         config: {
           petstore: {
             specPath: "examples/petstore.yaml",
-            outputDir: "docs/API",
+            outputDir: "docs/api",
             downloadUrl:
               "https://raw.githubusercontent.com/PaloAltoNetworks/docusaurus-template-openapi-docs/main/examples/petstore.yaml",
             sidebarOptions: {

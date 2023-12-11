@@ -27,7 +27,7 @@ const sidebars = {
         slug: "/api",
       },
       // @ts-ignore
-      items: require("./docs/API/sidebar.js"),
+      items: require("./docs/api/sidebar.js"),
     },
   ],
 
