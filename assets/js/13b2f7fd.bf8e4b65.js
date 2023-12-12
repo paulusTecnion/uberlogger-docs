@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkuberlogger_manual=self.webpackChunkuberlogger_manual||[]).push([[108],{44541:e=>{e.exports=JSON.parse('{"title":"Uberlogger API","description":"This is the Uberlogger API.","slug":"/api","permalink":"/api","navigation":{"next":{"title":"Introduction","permalink":"/api/uberlogger-api"}}}')}}]);
