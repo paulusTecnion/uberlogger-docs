@@ -1,0 +1,40 @@
+---
+id: format-sd-card
+title: "Format SD-card"
+description: "Format the inserted SD-card."
+sidebar_label: "Format SD-card"
+hide_title: true
+hide_table_of_contents: true
+api: eJyFkkFvozAQhf8KemcnpHvkVm26VaQ9VEorrZRwmJgJOAXbtU2UCPHfVwORumkPywWM583M+2YGVBx1MD4ZZ1HglwsdpSw1nBkbOSSusu16oSlUSyg4z4EkdFOhwHEK3q5/UqigkKiOKHaIlYSjVAgcvbORI4oBP1Yred3X2/Zac4zHvs2260x02Zw1GVtDQTub2CYRkvet0VP1/BRFPSDqhjuSr3T1jALucGKdoOCD9JrMXFsa+ScqpjCnZ9t30jLpd5Tj/ChcFtpVvKXOtyLfDWjJ1iig+9BCIbo+aL6ds8Wf7PnpNdujScnHIs/JmyVfJvVSuy6nE13yG6sJzR57i7FU6Dg1TkjWPPVMqUGB7wIoGHt0kwOTWin929U1h+zxZQOFM4c483xYrpYrqC+UH182gjVrZ9Gxt1puqDXpilHBu5g6moha6vhzD26j/5pw+JzL/zbmRjzxJeW+JWOlnmAshpvfHcQvFO4clwqNi0muh+FAkd9CO47y+6PncEWxKxXOFAwdhMeuHBUaporDNLB3vopvrdkL2TO1vbTxbYfupvD89Ipx/Ath7gug
+sidebar_class_name: "get api-method"
+info_path: api/logger-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>Format SD-card</h1>
+
+<MethodEndpoint method={"get"} path={"/ajax/formatSdcard"}></MethodEndpoint>
+
+
+
+Format the inserted SD-card.
+
+## Request
+
+<div><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Successful SD card formatting
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"resp"} required={false} schemaName={"string"} qualifierMessage={"**Possible values:** [`ack`]"} schema={{"type":"string","enum":["ack"]}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"resp\": \"ack\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

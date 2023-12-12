@@ -1,0 +1,44 @@
+---
+id: get-file-list
+title: "Get file list in directory"
+description: "Get the list of files in a directory."
+sidebar_label: "Get file list in directory"
+hide_title: true
+hide_table_of_contents: true
+api: eJyVVFFv0zAQ/ivWPYHktQVNPOStgm6qNKDaisToKuQ5l8bDsTP7UrWKIvE3+Hv8EnRJ1rVbmSAvie37vtx9951rSDHqYEoy3kEC50iCchTWRBI+E5mxGIVxQonUBNTkw3YAEnyJQTFmmkICK6QzY/HCRAIJpFYRkgW02G0kLGApoVRBFUgY+KwGpwqEBHakIMFwAqWiHCQEvK9MwBQSChVKiDrHQkFSA21LBkYKxq2gkU8KmOf4mKlgNkFeBKRgcI19PVnwxQCaJf8nlt5FjEz9djTi1yEhF9bJ8UCSilhpjTFmlbWcuPaO0BFjVVlao1tlhneRCernufvbO9SsVBlYRzLd74P3dCxKpalhQmVnB/Evs30af5wc1Wt+PTtyIAFdVXDbzqYXE5DwYXo5eT//fHkNy0bC1fTbPsg4whUGkJD5UCjqtt6dQvPwSDgdnR5R09sUg0g9Rvf75y8SuGHTcPzmRPsUr1RRWuw8YpVbQQK6ChYkRF8Fjf1anHwV55O5uIGcqIzJcKhKM8BNix5oXwzVndoM94w5jL7A7ztr3MCNax1QIOW+NzGLyP5L4Dm83kGb1quZb/UwZDmnC79aYRDj2RQkrDHErtw3g9FgBE89Op5NReaDsB0oq5zu+mtoyx0qfaRCtd7px4THMtsZ0TixPzcH5PWjG/95mPumEm5oWFplHCfBoid1r8cCWA+QTyY9eUxjKSH3kTi0rm9VxC/BNg1v31cYtpAslhLWKhh1y4ItakhN5O8UkkzZiC/U8eqyvw1ei/8Y77/U1W8qx9Ktla14BRJ+4PbgPmrY9jmqFEObbnc+1hpL2kM+G/gDT51P5tA0fwAV3Nov
+sidebar_class_name: "get api-method"
+info_path: api/logger-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>Get file list in directory</h1>
+
+<MethodEndpoint method={"get"} path={"/ajax/getFileList/{directory}"}></MethodEndpoint>
+
+
+
+Get the list of files in a directory.
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Path Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"directory","in":"path","required":true,"schema":{"type":"string"},"description":"The directory path to retrieve files from."}}></ParamsItem></ul></div></details><div><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+File list retrieved successfully
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><span className={"openapi-schema__container"}><strong className={"openapi-schema__property"}>root</strong><span className={"openapi-schema__name"}> object</span></span></summary><div style={{"marginLeft":"1rem"}}><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><span className={"openapi-schema__container"}><strong className={"openapi-schema__property"}>property name*</strong><span className={"openapi-schema__name"}> object</span></span></summary><div style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"NAME"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"TYPE"} required={false} schemaName={"string"} qualifierMessage={"**Possible values:** [`FILE`, `DIRECTORY`]"} schema={{"type":"string","enum":["FILE","DIRECTORY"]}}></SchemaItem><SchemaItem collapsible={false} name={"SIZE"} required={false} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64"}}></SchemaItem></div></details></SchemaItem></div></details></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"root\": {}\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Folder doesn’t exist
+
+</div><div></div></TabItem></ApiTabs></div></div>
+      

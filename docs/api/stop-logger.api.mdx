@@ -1,0 +1,44 @@
+---
+id: stop-logger
+title: "Stop logger"
+description: "Stop the logger"
+sidebar_label: "Stop logger"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9UsGK2zAQ/RXzzto4LXvybY+BQgNpoeDkMJEnsbKypEpySDD+9zJ20t1sS4/1xZY18+a9N29Aw0lHE7LxDhU22Ycit1xYfzxyhIIPHEluVw0qpOzDl/tVpmNCVWOu1d7l6C12CpFT8C5xQjXg83Ipr8c5M0YhcIGbIvVac0qH3torFASKXZY2CsEaPREoT0l6ByTdckfyla+BUcHvT6wzFEIUutnMk4XGu6qUo3FHKLDrO+FN+hW7cXoUnpfP/6RZHMhYbv4fOzfTEzfpBv1YOt6pX560b3hDXbACXQ+w5I6ooPtooZB8HzXfzsXTj2L9dfOt2KLNOaSqLCmYBV+m9oX2XUknupTzUiUPW2wdxp1Cx7n1koLg06SHcosKH+uhYNzBT4RNtvzm48t6BYUzxzTb+2mxXCyhPpj+sl4VBx9vESwOvdNyQ9bkK0Y1Te9oMsRRx/fU/k7sA9rwtq6/hPtmaOZLLoMl4wRfTKuGm7oaog4K7/TtFFpxoKoxDHtK/D3acZTfP3uOV1T1TuFM0dBe1NeyxJap4Tgt55WvolJrDuLimWwvJP7I0oPlsjKM4y9qvURj
+sidebar_class_name: "post api-method"
+info_path: api/logger-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>Stop logger</h1>
+
+<MethodEndpoint method={"post"} path={"/ajax/loggerStop"}></MethodEndpoint>
+
+
+
+Stop the logger
+
+## Request
+
+<div><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Logger stopped successfully
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"resp"} required={false} schemaName={"string"} qualifierMessage={"**Possible values:** [`ack`]"} schema={{"type":"string","enum":["ack"]}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"resp\": \"ack\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Logger stop failed
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"resp"} required={false} schemaName={"string"} qualifierMessage={"**Possible values:** [`nack`]"} schema={{"type":"string","enum":["nack"]}}></SchemaItem><SchemaItem collapsible={false} name={"reason"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"resp\": \"nack\",\n  \"reason\": \"string\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

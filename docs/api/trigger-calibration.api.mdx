@@ -1,0 +1,40 @@
+---
+id: trigger-calibration
+title: "Trigger calibration process"
+description: "Trigger a calibration process in the logger."
+sidebar_label: "Trigger calibration process"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VMtu2zAQ/BVizvSjPermBkFgIIcAToACjg9rai0zkUiGpAIbgv69WMlOnEcPPVSXlbjPmR2qQ8nJRBuy9Q4F7qOtKo6KlKHabiPJuQrRG05JWafynlXtJWYKjUxVQrHGRTA2Gj7w+LEsUSCPNa8uYjQip+Bd4oSiw8/5XMzHUVatkaa7tr6cBRrGu8wuSwaFUFszOGZPSdI6JLPnhuQtHwOjgN8+scnQoLK0Ekr1XZQRsx3byywX8SlH6yposGsbQUfmWTkyz9j046NxmBhf8oqaUEuNdYeaXIUCpo01NJJvo+HTt5r8VjfX9+oR+5xDKmYzCnbKhyF7anwzoyc6zM4o+RGPDv1GI1CkhjPHsYWjRkoujOGQJ7fkqpYqhoYVvvZMJUfozxuVhZ1C1dG3KkTecVQ7H1XDKVHFaapWbQg+Zi7VK9UtJ0WRFbvJ4kGLuVoM5ubXYB5WQs44PgqcTyK/tDZyiWJHdWL9dRNvzJa8o7bOb8m9oG04770IpmLZVqC8R4FP3Axod34oavPQ/3aQo1rcLaHxyjGNwH9M59P5FzoWd8sB+qhhtWudGSVh8xG9RvApNzQI6UT3+Up8cyE+V+/etfnPN2lkKPMhz0JN1skwoqWiOzGxhjAh+n/jYqOx9ymLr+u2lPgh1n0vxy8txyOK9UbjlaKlrTC13vT6LBPRU2mTON4X9ncw/0lE36J+5uO3Kh+KogB63X0IuvB9+SF8ENbN9T36/g9jX7G4
+sidebar_class_name: "get api-method"
+info_path: api/logger-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>Trigger calibration process</h1>
+
+<MethodEndpoint method={"get"} path={"/ajax/calibrate"}></MethodEndpoint>
+
+
+
+Trigger a calibration process in the logger.
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Header Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"Accept-Language","in":"header","description":"The language you prefer for messages. Supported values are en-AU, en-CA, en-GB, en-US","example":"en-US","required":false,"schema":{"type":"string","default":"en-US"}}}></ParamsItem></ul></div></details><div><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Successful calibration
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"resp"} required={false} schemaName={"string"} qualifierMessage={"**Possible values:** [`ack nack`]"} schema={{"type":"string","enum":["ack nack"]}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

@@ -1,0 +1,264 @@
+openapi: 3.0.0
+info:
+  title: Logger API
+  version: 1.0.0
+  description: API for logger functionality
+
+tags:
+  - name: calibration
+    x-displayName: Calibration
+    description: Operations related to calibration
+  - name: sdcard
+    x-displayName: SD Card
+    description: Operations related to SD card management
+  - name: filesystem
+    x-displayName: File System
+    description: Operations related to file system management
+  - name: data
+    x-displayName: Values
+    description: Operations related to retrieving values
+  - name: loggercontrol
+    x-displayName: Logger Control
+    description: Operations related to logger control
+
+paths:
+  /ajax/calibrate:
+    parameters:
+      - name: Accept-Language
+        in: header
+        description: "The language you prefer for messages. Supported values are en-AU, en-CA, en-GB, en-US"
+        example: en-US
+        required: false
+        schema:
+          type: string
+          default: en-US
+    get:
+      summary: Trigger calibration process
+      description: Trigger a calibration process in the logger.
+      tags:
+        - calibration
+      operationId: triggerCalibration
+      responses:
+        "200":
+          description: Successful calibration
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  resp:
+                    type: string
+                    enum: [ack nack]
+      x-codeSamples:
+        - lang: curl
+          source: |
+            curl -X GET "https://api.example.com/ajax/calibrate"
+
+  /ajax/formatSdcard:
+    get:
+      summary: Format SD-card
+      description: Format the inserted SD-card.
+      operationId: formatSDCard
+      tags:
+        - sdcard
+      responses:
+        "200":
+          description: Successful SD card formatting
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  resp:
+                    type: string
+                    enum: [ack]
+      x-codeSamples:
+        - lang: curl
+          source: |
+            curl -X GET "https://api.example.com/ajax/formatSdcard"
+
+  /ajax/getFileList/{directory}:
+    get:
+      summary: Get file list in directory
+      description: Get the list of files in a directory.
+      operationId: getFileList
+      tags:
+        - filesystem
+      parameters:
+        - name: directory
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The directory path to retrieve files from.
+      responses:
+        "200":
+          description: File list retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  root:
+                    type: object
+                    additionalProperties:
+                      type: object
+                      properties:
+                        NAME:
+                          type: string
+                        TYPE:
+                          type: string
+                          enum: [FILE, DIRECTORY]
+                        SIZE:
+                          type: integer
+                          format: int64
+        "404":
+          description: Folder doesn’t exist
+      x-codeSamples:
+        - lang: curl
+          source: |
+            curl -X GET "https://api.example.com/ajax/getFileList/some_directory"
+
+  /ajax/getValues:
+    get:
+      summary: Get current values
+      description: Get current ADC values, digital input values, and state values.
+      operationId: getCurrentValues
+      tags:
+        - data
+      responses:
+        "200":
+          description: Successful retrieval of values
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  TIMESTAMP:
+                    type: integer
+                    format: int64
+                  READINGS:
+                    type: object
+                    properties:
+                      TEMPERATURE:
+                        type: object
+                        properties:
+                          UNITS:
+                            type: string
+                          VALUES:
+                            type: object
+                            additionalProperties:
+                              type: number
+                      ANALOG:
+                        type: object
+                        properties:
+                          UNITS:
+                            type: string
+                          VALUES:
+                            type: object
+                            additionalProperties:
+                              type: number
+                      DIGITAL:
+                        type: object
+                        properties:
+                          UNITS:
+                            type: string
+                          VALUES:
+                            type: object
+                            additionalProperties:
+                              type: integer
+                  LOGGER_STATE:
+                    type: integer
+                    enum: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+                  ERRORCODE:
+                    type: integer
+                  FW_VERSION:
+                    type: string
+                  SD_CARD_FREE_SPACE:
+                    type: integer
+                    format: int64
+                  SD_CARD_STATUS:
+                    type: integer
+                    enum: [0, 1, 2, 3]
+                  WIFI_TEST_STATUS:
+                    type: integer
+                    enum: [0, 1, 2, 3]
+                  WIFI_TEST_IP:
+                    type: string
+                    format: ipv4
+                  WIFI_TEST_RSSI:
+                    type: integer
+      x-codeSamples:
+        - lang: curl
+          source: |
+            curl -X GET "https://api.example.com/ajax/getValues"
+
+  /ajax/loggerStart:
+    post:
+      summary: Start logger
+      description: Start the logger
+      operationId: startLogger
+      tags:
+        - loggercontrol
+      responses:
+        "200":
+          description: Logger started successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  resp:
+                    type: string
+                    enum: [ack]
+        "404":
+          description: Logger start failed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  resp:
+                    type: string
+                    enum: [nack]
+                  reason:
+                    type: string
+      x-codeSamples:
+        - lang: curl
+          source: |
+            curl -X POST "https://api.example.com/ajax/loggerStart"
+
+  /ajax/loggerStop:
+    post:
+      summary: Stop logger
+      description: Stop the logger
+      operationId: stopLogger
+      tags:
+        - loggercontrol
+      responses:
+        "200":
+          description: Logger stopped successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  resp:
+                    type: string
+                    enum: [ack]
+        "404":
+          description: Logger stop failed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  resp:
+                    type: string
+                    enum: [nack]
+                  reason:
+                    type: string
+      x-codeSamples:
+        - lang: curl
+          source: |
+            curl -X POST "https://api.example.com/ajax/loggerStop"
