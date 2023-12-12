@@ -65,6 +65,12 @@ const config = {
             position: "left",
             to: "/api/",
           },
+          // {
+          //   type: "docsVersionDropdown",
+          //   position: "right",
+          //   dropdownItemsAfter: [{ to: "/versions", label: "All versions" }],
+          //   dropdownActiveClassDisabled: true,
+          // },
         ],
       },
       footer: {

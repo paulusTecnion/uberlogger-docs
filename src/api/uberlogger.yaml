@@ -1,9 +1,15 @@
 openapi: 3.0.0
 info:
-  title: Logger API
+  title: Uberlogger API
   version: 1.0.0
-  description: API for logger functionality
+  description: |
+    The Uberlogger API provides functionalities for managing logger operations. 
+    It encompasses endpoints for triggering calibration, formatting the SD card, 
+    retrieving file lists, obtaining current measurment values, and controlling the logger. 
+    Each endpoint is thoroughly described, including their operations, expected responses, 
+    and code samples, facilitating seamless integration and utilization for developers.
 
+    **Limitation**: **don't call the endpoints more than twice per second**. There is no throttling implemented, so calling them too often may overload the Uberlogger and could lead to unstable behaviour.
 tags:
   - name: calibration
     x-displayName: Calibration
@@ -121,7 +127,7 @@ paths:
 
   /ajax/getValues:
     get:
-      summary: Get current values
+      summary: Get current measurement/config values
       description: Get current ADC values, digital input values, and state values.
       operationId: getCurrentValues
       tags:

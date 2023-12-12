@@ -1,12 +1,10 @@
-## Setting the sampling frequency and resolution
+# Sample frequency and resolution
 
 You can set the sample rate and resolution by going to "Channel
 configuration" and selecting the desired sample rate and resolution. To
-save the settings, click "Save all settings" or "Save channel settings".
+save the settings, click `Save all settings` or `Save channel settings`.
 
 ![A screenshot of a computer Description automatically generated](media/image18.png)
-
-Figure 6: selecting the sample rate and resolution.
 
 ## Sampling frequency
 
@@ -18,7 +16,7 @@ from 1 Hz to 250 Hz.
 The appropriate sampling frequency for your measurements depends on the
 signal you wish to capture accurately. It is recommended to set the
 sample rate at least twice the maximum frequency of the signal of
-interest. For instance, if your signal\'s highest frequency is 50 Hz,
+interest. For instance, if your signal's highest frequency is 50 Hz,
 logging at 100 Hz will prevent aliasing (signal distortion due to a too
 low sample rate).
 
@@ -37,7 +35,7 @@ channels and applying a first order IIR low-pass filter. This
 enhancement is especially advantageous when measuring small variations
 or fine details in signals.
 
-:::info[Note]
+:::info Note
 
 When utilizing NTC sensors, it is important to be aware that
 the resolution for the corresponding channel will be automatically
