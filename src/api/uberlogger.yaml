@@ -176,6 +176,13 @@ paths:
                   LOGGER_STATE:
                     type: integer
                     enum: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+                    description: |
+                      The current state of the logger. The following values correspond to specific states:
+                      - `1` - IDLE: The logger is idle.
+                      - `2` - CONFIG_STATE: The logger is in configuration mode.
+                      - `3` - LOGGING: The logger is actively logging data.
+                      - `4` - ERROR: The logger has encountered an error.
+                      - `5` - ... (and so on for each enum value)
                   ERRORCODE:
                     type: integer
                   FW_VERSION:
