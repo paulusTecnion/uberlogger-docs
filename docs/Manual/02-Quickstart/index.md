@@ -80,7 +80,8 @@ corrupt your data!
 :::
 
 5.  **Using the file browser:** you can download the csv from the file
-    browser which can be found under the `Logging` tab.
+    browser which can be found under the `Logging` tab. This will always show the last page of the files in the directory.
+    ![File browser](media/image16.png)
 
 # Connecting inputs
 

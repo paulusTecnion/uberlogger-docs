@@ -5,30 +5,18 @@ slug: /
 
 # Introduction
 
-Welcome to the Uberlogger User Manual. The Uberlogger allows you to
-measure and record voltage, temperature, and digital inputs. With its
-ability to log and store data directly to an SD card in the universally
-readable CSV (Comma Separated Values) format, Uberlogger is a simple,
-yet powerful measurement device.
+![Uberlogger logo](../../static/img/logo_transparant1.png)
+![Uberlogger](uberlogger.webp)
 
-Designed with both precision and ease-of-use in mind, Uberlogger
-integrates effortlessly into a range of applications such as industrial
-control, environmental monitoring, research, and development, and much
-more. Whether you are monitoring temperature and voltage fluctuations in
-a factory setting or capturing data for scientific research, Uberlogger
-can meet and exceed your data acquisition requirements.
+Welcome to the Uberlogger User Manual. The Uberlogger allows you to measure and record voltage, temperature, and digital inputs. With its ability to log and store data directly to an SD card in the universally readable CSV (Comma Separated Values) format, Uberlogger is a simple, yet powerful measurement device.
 
-This manual will guide you through all aspects of the Uberlogger: from
-setup, operation, data retrieval, troubleshooting, to maintenance. If
-you encounter any issues or have questions while using the Uberlogger,
-our dedicated support team is available to assist you. You can find our
-contact information at the end of this manual.
-
-Thank you for choosing the Uberlogger for your data-acquisition needs.
-We are confident that this device will prove to be an indispensable tool
-in your projects, research, and data analysis projects.
+This manual will guide you through all aspects of the Uberlogger: from [quickstarting](/Manual/Quickstart) it, configuring the logger, firmware upgrade and troubleshooting. If you still encounter any issues or have questions while using the Uberlogger, please contact the support team.
 
 Happy logging!
+
+## API
+
+The Uberlogger also has an API you can use to control the logger, which you can find [here](/API/).
 
 ## Package content
 

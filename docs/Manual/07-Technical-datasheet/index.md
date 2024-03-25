@@ -27,5 +27,5 @@
 | USB-Port-C                          | Only used for power                                        |                                                   |
 | SD-Card                             |                                                            | MicroSD, Up to 32GB, FAT only, Max file size: 4GB |
 | **Mechanical**                      |                                                            |                                                   |
-| Dimensions (outer)                  |                                                            | 48x77x23 mm (approximately)                       |
+| Dimensions (outer)                  |                                                            | 145x77x23 mm (approximately)                      |
 | Enclosure type                      |                                                            | PCB stacked                                       |

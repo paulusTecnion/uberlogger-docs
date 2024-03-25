@@ -55,11 +55,6 @@ const config: Config = {
             spec: "src/api/uberlogger.yaml",
             route: "/api/",
           },
-          // You can also pass it a OpenAPI spec URL
-          {
-            spec: "https://redocly.github.io/redoc/openapi.yaml",
-            route: "/openapi/",
-          },
         ],
         // Theme Options for modifying how redoc renders them
         theme: {
@@ -137,12 +132,12 @@ const config: Config = {
           items: [
             {
               label: "GitHub",
-              href: "https://github.com/facebook/docusaurus",
+              href: "https://github.com/paulusTecnion/uberlogger-docs",
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Uberlogger. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,

@@ -1,7 +1,6 @@
-openapi: 3.0.0
+openapi: 3.0.3
 info:
-  title: Uberlogger API
-  version: 1.0.0
+  title: Logger API
   description: |
     The Uberlogger API provides functionalities for managing logger operations. 
     It encompasses endpoints for triggering calibration, formatting the SD card, 
@@ -10,268 +9,442 @@ info:
     and code samples, facilitating seamless integration and utilization for developers.
 
     **Limitation**: **don't call the endpoints more than twice per second**. There is no throttling implemented, so calling them too often may overload the Uberlogger and could lead to unstable behaviour.
-tags:
-  - name: calibration
-    x-displayName: Calibration
-    description: Operations related to calibration
-  - name: sdcard
-    x-displayName: SD Card
-    description: Operations related to SD card management
-  - name: filesystem
-    x-displayName: File System
-    description: Operations related to file system management
-  - name: data
-    x-displayName: Values
-    description: Operations related to retrieving values
-  - name: loggercontrol
-    x-displayName: Logger Control
-    description: Operations related to logger control
-
+  version: "1.0.4"
+servers:
+  - url: http://{host}:{port}
+    variables:
+      host:
+        default: "192.168.4.1"
+      port:
+        default: "80"
 paths:
   /ajax/calibrate:
-    parameters:
-      - name: Accept-Language
-        in: header
-        description: "The language you prefer for messages. Supported values are en-AU, en-CA, en-GB, en-US"
-        example: en-US
-        required: false
-        schema:
-          type: string
-          default: en-US
     get:
       summary: Trigger calibration process
-      description: Trigger a calibration process in the logger.
       tags:
-        - calibration
-      operationId: triggerCalibration
+        - Calibration
       responses:
         "200":
-          description: Successful calibration
-          content:
-            application/json:
-              schema:
-                type: object
-                additionalProperties:
-                  resp:
-                    type: string
-                    enum: [ack nack]
-      x-codeSamples:
-        - lang: curl
-          source: |
-            curl -X GET "https://api.example.com/ajax/calibrate"
-
+          description: Calibration started successfully
+        "403":
+          description: Calibration cannot be started (e.g., logger is currently logging)
+        "500":
+          description: Internal server error
   /ajax/formatSdcard:
     get:
-      summary: Format SD-card
-      description: Format the inserted SD-card.
-      operationId: formatSDCard
+      summary: Format the SD card
       tags:
-        - sdcard
+        - SD Card Management
       responses:
         "200":
-          description: Successful SD card formatting
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  resp:
-                    type: string
-                    enum: [ack]
-      x-codeSamples:
-        - lang: curl
-          source: |
-            curl -X GET "https://api.example.com/ajax/formatSdcard"
-
-  /ajax/getFileList/{directory}:
-    get:
-      summary: Get file list in directory
-      description: Get the list of files in a directory.
-      operationId: getFileList
-      tags:
-        - filesystem
-      parameters:
-        - name: directory
-          in: path
-          required: true
-          schema:
-            type: string
-          description: The directory path to retrieve files from.
-      responses:
-        "200":
-          description: File list retrieved successfully
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  root:
-                    type: object
-                    additionalProperties:
-                      type: object
-                      properties:
-                        NAME:
-                          type: string
-                        TYPE:
-                          type: string
-                          enum: [FILE, DIRECTORY]
-                        SIZE:
-                          type: integer
-                          format: int64
-        "404":
-          description: Folder doesn’t exist
-      x-codeSamples:
-        - lang: curl
-          source: |
-            curl -X GET "https://api.example.com/ajax/getFileList/some_directory"
-
+          description: Formatting started successfully
+        "403":
+          description: Cannot start format (e.g., SD card not inserted or logging is active)
+        "500":
+          description: Internal server error
   /ajax/getValues:
     get:
-      summary: Get current measurement/config values
-      description: Get current ADC values, digital input values, and state values.
-      operationId: getCurrentValues
+      summary: Get current logger values
       tags:
-        - data
+        - Data
       responses:
         "200":
-          description: Successful retrieval of values
+          description: Successfully retrieved the logger values
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  TIMESTAMP:
-                    type: integer
-                    format: int64
-                  READINGS:
-                    type: object
-                    properties:
-                      TEMPERATURE:
-                        type: object
-                        properties:
-                          UNITS:
-                            type: string
-                          VALUES:
-                            type: object
-                            additionalProperties:
-                              type: number
-                      ANALOG:
-                        type: object
-                        properties:
-                          UNITS:
-                            type: string
-                          VALUES:
-                            type: object
-                            additionalProperties:
-                              type: number
-                      DIGITAL:
-                        type: object
-                        properties:
-                          UNITS:
-                            type: string
-                          VALUES:
-                            type: object
-                            additionalProperties:
-                              type: integer
-                  LOGGER_STATE:
-                    type: integer
-                    enum: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
-                    description: |
-                      The current state of the logger. The following values correspond to specific states:
-                      - `1` - IDLE: The logger is idle.
-                      - `2` - CONFIG_STATE: The logger is in configuration mode.
-                      - `3` - LOGGING: The logger is actively logging data.
-                      - `4` - ERROR: The logger has encountered an error.
-                      - `5` - ... (and so on for each enum value)
-                  ERRORCODE:
-                    type: integer
-                  FW_VERSION:
-                    type: string
-                  SD_CARD_FREE_SPACE:
-                    type: integer
-                    format: int64
-                  SD_CARD_STATUS:
-                    type: integer
-                    enum: [0, 1, 2, 3]
-                  WIFI_TEST_STATUS:
-                    type: integer
-                    enum: [0, 1, 2, 3]
-                  WIFI_TEST_IP:
-                    type: string
-                    format: ipv4
-                  WIFI_TEST_RSSI:
-                    type: integer
-      x-codeSamples:
-        - lang: curl
-          source: |
-            curl -X GET "https://api.example.com/ajax/getValues"
+                $ref: "#/components/schemas/LoggerValues"
+        "500":
+          description: Internal server error
+  /ajax/getConfig:
+    get:
+      summary: Get current logger configuration
+      tags:
+        - Configuration
+      responses:
+        "200":
+          description: Successfully retrieved the logger configuration
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LoggerConfig"
+        "500":
+          description: Internal server error
+  /ajax/setConfig:
+    post:
+      summary: Set logger configuration
+      tags:
+        - Configuration
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LoggerConfig"
+      responses:
+        "200":
+          description: Configuration updated successfully
+        "400":
+          description: Invalid configuration data
+        "403":
+          description: Cannot set configuration while logging
+        "500":
+          description: Internal server error
+
+    #   /ajax/getRawAdc:
+    # get:
+    #   summary: Retrieve raw ADC (Analog-to-Digital Converter) values
+    #   tags:
+    #     - Data
+    #   responses:
+    #     "200":
+    #       description: Successfully retrieved the raw ADC values
+    #       content:
+    #         application/json:
+    #           schema:
+    #             type: object
+    #             properties:
+    #               AIN0:
+    #                 type: integer
+    #               AIN1:
+    #                 type: integer
+    #               # Continue for other ADC channels as per your actual configuration
+    #     "500":
+    #       description: Internal server error
+
+  # /ajax/getStatus:
+  #   get:
+  #     summary: Get current status of the logger
+  #     tags:
+  #       - Status
+  #     responses:
+  #       "200":
+  #         description: Successfully retrieved the status of the logger
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: "#/components/schemas/LoggerStatus"
+  #       "500":
+  #         description: Internal server error
+
+  /ajax/setTime:
+    post:
+      summary: Set the current time of the logger
+      tags:
+        - Configuration
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                TIMESTAMP:
+                  type: integer
+                  description: Unix timestamp to set the logger's current time in ms.
+                  example: 1711368350281
+      responses:
+        "200":
+          description: Successfully set the time
+        "400":
+          description: Invalid time data provided
+        "403":
+          description: Cannot set time while logging
+        "500":
+          description: Internal server error
 
   /ajax/loggerStart:
     post:
-      summary: Start logger
-      description: Start the logger
-      operationId: startLogger
+      summary: Start the logging process
       tags:
-        - loggercontrol
+        - Logger Control
       responses:
         "200":
-          description: Logger started successfully
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  resp:
-                    type: string
-                    enum: [ack]
-        "404":
-          description: Logger start failed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  resp:
-                    type: string
-                    enum: [nack]
-                  reason:
-                    type: string
-      x-codeSamples:
-        - lang: curl
-          source: |
-            curl -X POST "https://api.example.com/ajax/loggerStart"
+          description: Logging started successfully
+        "403":
+          description: Logging could not be started (e.g., already logging)
+        "500":
+          description: Internal server error
 
   /ajax/loggerStop:
     post:
-      summary: Stop logger
-      description: Stop the logger
-      operationId: stopLogger
+      summary: Stop the logging process
       tags:
-        - loggercontrol
+        - Logger Control
       responses:
         "200":
-          description: Logger stopped successfully
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  resp:
-                    type: string
-                    enum: [ack]
-        "404":
-          description: Logger stop failed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  resp:
-                    type: string
-                    enum: [nack]
-                  reason:
-                    type: string
-      x-codeSamples:
-        - lang: curl
-          source: |
-            curl -X POST "https://api.example.com/ajax/loggerStop"
+          description: Logging stopped successfully
+        "403":
+          description: Logging could not be stopped (e.g., not currently logging)
+        "500":
+          description: Internal server error
+
+  /ajax/sdcardUnmount:
+    post:
+      summary: Unmount the SD card safely
+      tags:
+        - SD Card Management
+      responses:
+        "200":
+          description: SD card unmounted successfully
+        "403":
+          description: SD card could not be unmounted (e.g., logging in process or SD card not inserted)
+        "500":
+          description: Internal server error
+
+components:
+  schemas:
+    # LoggerStatus:
+    #   type: object
+    #   properties:
+    #     LOGGER_STATE:
+    #       type: integer
+    #       enum: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    #       description: |
+    #         The current state of the logger. The following values correspond to specific states:
+    #         - `1` - IDLE: The logger is idle.
+    #         - `2` - LOGGING: The logger is actively logging data.
+    #         - `3` - PERSISTING: The logger is persisting settings
+    #         - `4` - SYNC: syncing settings with external STM32 chip
+    #         - `5` - SYNC_TIME: syncing the time with STM32
+    #         - `6` - ERROR: error state
+    #         - `7` - REBOOT: system about to reboot
+    #         - `8` - FIRMWARE_UPDATE: firmware update mode
+    #         - `9` - SINGLE_SHOT: retrieve a single ADC conversion
+    #         - `10` - CALIBRATE: calibration mode enabled
+    #         - `11` - FORMAT_SD_CARD: formatting SD card
+    #     ERRORCODE:
+    #       type: integer
+    #       description: Current error code if any. Check manual for the meaning of the error codes. Codes can be bitwise OR-ed in this integer.
+    #     FW_VERSION:
+    #       type: string
+    #       description: Firmware version
+    #     SD_CARD_FREE_SPACE:
+    #       type: integer
+    #       description: Available space in SD card in KB
+    #     SD_CARD_STATUS:
+    #       type: integer
+    #       enum: [0, 1, 2, 3]
+    #       description: |
+    #         Status of the SD card
+    #         - `0` - EJECTED: SD card is ejected.
+    #         - `1` - UNMOUNTED: SD card is unmounted or not available.
+    #         - `2` - MOUNTED: SD card is mounted
+    #         - `3` - MOUNT_ERROR: Error mounting the SD card
+    #     WIFI_TEST_STATUS:
+    #       type: integer
+    #       enum: [0, 1, 2, 3]
+    #       description: |
+    #         WiFi connection status
+    #         - `0` - IDLE: Wi-Fi connection idle
+    #         - `1` - DISCONNECTED: The logger is not connected to an access point
+    #         - `2` - CONNECTION_AP_FAILED: Connection to access point failed.
+    #         - `3` - CONNECTION_AP_SUCCESS: The logger succesfully connected to the provided access point
+    #     WIFI_TEST_IP:
+    #       type: string
+    #       format: ipv4
+    #       description: WiFi module IP address from access point
+    #     WIFI_TEST_RSSI:
+    #       type: integer
+    #       description: WiFi signal strength in RSSI
+    LoggerValues:
+      type: object
+      properties:
+        TIMESTAMP:
+          type: integer
+          format: int64
+          description: Unix timestamp set on the Uberlogger in ms
+          example: 1711207016573
+        READINGS:
+          type: object
+          properties:
+            TEMPERATURE:
+              type: object
+              properties:
+                UNITS:
+                  type: string
+                  example: "DEG C"
+                VALUES:
+                  type: object
+                  additionalProperties:
+                    type: number # This allows for NTC1, NTC2, etc.
+                  description: Temperature values for NTC sensors. Can include any from NTC1 to NTC8.
+                  example:
+                    {
+                      NTC2: 25.5,
+                      NTC4: 26.5,
+                      NTC5: 27.0,
+                      NTC6: 27.5,
+                      NTC7: 28.0,
+                    }
+            ANALOG:
+              type: object
+              properties:
+                UNITS:
+                  type: string
+                  example: "Volt"
+                VALUES:
+                  type: object
+                  additionalProperties:
+                    type: number # This allows for AIN1, AIN2, etc.
+                  description: Analog values for sensors. Can include any from AIN1 to AIN8.
+                  example:
+                    { AIN1: 14.225257, AIN3: 14.2266462, AIN8: 14.2266462 }
+            DIGITAL:
+              type: object
+              properties:
+                UNITS:
+                  type: string
+                  example: "Level"
+                VALUES:
+                  type: object
+                  properties:
+                    DI1:
+                      type: integer
+                      enum: [0, 1]
+                      example: 0
+                    DI2:
+                      type: integer
+                      enum: [0, 1]
+                      example: 0
+                    DI3:
+                      type: integer
+                      enum: [0, 1]
+                      example: 0
+                    DI4:
+                      type: integer
+                      enum: [0, 1]
+                      example: 0
+                    DI5:
+                      type: integer
+                      enum: [0, 1]
+                      example: 0
+                    DI6:
+                      type: integer
+                      enum: [0, 1]
+                      example: 0
+        LOGGER_STATE:
+          type: integer
+          enum: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+          description: |
+            The current state of the logger. The following values correspond to specific states:
+            - `1` - IDLE: The logger is idle.
+            - `2` - LOGGING: The logger is actively logging data.
+            - `3` - PERSISTING: The logger is persisting settings
+            - `4` - SYNC: syncing settings with external STM32 chip
+            - `5` - SYNC_TIME: syncing the time with STM32
+            - `6` - ERROR: error state
+            - `7` - REBOOT: system about to reboot 
+            - `8` - FIRMWARE_UPDATE: firmware update mode
+            - `9` - SINGLE_SHOT: retrieve a single ADC conversion
+            - `10` - CALIBRATE: calibration mode enabled
+            - `11` - FORMAT_SD_CARD: formatting SD card
+        ERRORCODE:
+          type: integer
+          description: Current error code if any. Check manual for the meaning of the error codes. Codes can be bitwise OR-ed in this integer.
+        FW_VERSION:
+          type: string
+          description: Firmware version
+          example: "1.0.3_2024.03.23.14.40"
+        SD_CARD_FREE_SPACE:
+          type: integer
+          description: Available space in SD card in KB
+          example: 15097344
+        SD_CARD_STATUS:
+          type: integer
+          enum: [0, 1, 2, 3]
+          description: |
+            Status of the SD card
+            - `0` - EJECTED: SD card is ejected.
+            - `1` - UNMOUNTED: SD card is unmounted or not available.
+            - `2` - MOUNTED: SD card is mounted
+            - `3` - MOUNT_ERROR: Error mounting the SD card
+          example: 2
+        WIFI_TEST_STATUS:
+          type: integer
+          enum: [0, 1, 2, 3]
+          description: |
+            WiFi connection status
+            - `0` - IDLE: Wi-Fi connection idle
+            - `1` - DISCONNECTED: The logger is not connected to an access point
+            - `2` - CONNECTION_AP_FAILED: Connection to access point failed.
+            - `3` - CONNECTION_AP_SUCCESS: The logger succesfully connected to the provided access point
+          example: 0
+        WIFI_TEST_IP:
+          type: string
+          format: ipv4
+          description: WiFi module IP address from access point
+          example: "192.168.6.3"
+        WIFI_TEST_RSSI:
+          type: integer
+          description: WiFi signal strength in RSSI
+          example: -54.00
+    LoggerConfig:
+      type: object
+      properties:
+        ADC_RESOLUTION:
+          type: integer
+          enum: [12, 16]
+          description: Resolution of ADC measurements. Can be either 12 bits or 16 bits.
+          example: 12
+        LOG_SAMPLE_RATE:
+          type: integer
+          enum: [0, 1, 2, 3, 4, 5, 6, 7]
+          description: |
+            Frequency at which the logger samples data. 
+            - `0` - 1 Hz
+            - `1` - 2 Hz
+            - `2` - 5 Hz
+            - `3` - 10 Hz
+            - `4` - 25 Hz
+            - `5` - 50 Hz
+            - `6` - 100 Hz
+            - `7` - 250 Hz
+          example: 1
+        LOG_MODE:
+          type: integer
+          enum: [0, 1]
+          description: |
+            Logging mode of the device.
+            - `0` - RAW: Stores raw binary data.
+            - `1` - CSV: Stores data in CSV format.
+          example: 0
+        FILE_NAME_MODE:
+          type: integer
+          enum: [0, 1]
+          description: |
+            File naming convention used by the logger.
+            - `0` - SEQ_NUM: Sequential numbering.
+            - `1` - TIMESTAMP: Based on the timestamp.
+          example: 1
+        FILE_DECIMAL_CHAR:
+          type: integer
+          enum: [0, 1]
+          description: |
+            Character used for decimal notation in files.
+            - `0` - DOT: Decimal point.
+            - `1` - COMMA: Decimal comma.
+          example: 0
+        FILE_NAME_PREFIX:
+          type: string
+          description: Log file prefix. Cannot contain special characters or spaces.
+          maxLength: 70
+          example: logfilename
+        FILE_SEPARATOR_CHAR:
+          type: integer
+          enum: [0, 1]
+          description: |
+            Character used as a separator in files.
+            - `0` - COMMA: Comma is used as a separator.
+            - `1` - SEMICOLON: Semicolon is used as a separator.
+          example: 0
+        WIFI_SSID:
+          type: string
+          description: WiFi SSID of accespoint the Uberlogger needs to connect to.
+          maxLength: 32
+        WIFI_CHANNEL:
+          type: integer
+          minimum: 1
+          maximum: 13
+          description: WiFi channel used by the device. Range is from 1 to 13.
+          example: 1
