@@ -178,7 +178,16 @@ paths:
           description: Logging could not be stopped (e.g., not currently logging)
         "500":
           description: Internal server error
-
+  /ajax/reboot:
+    post:
+      summary: Reboot the Uberlogger
+      tags:
+        - Logger Control
+      responses:
+        "200":
+          description: System rebooting in 3 seconds.
+        "500":
+          description: Internal server error
   /ajax/sdcardUnmount:
     post:
       summary: Unmount the SD card safely
