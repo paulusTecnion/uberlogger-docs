@@ -16,7 +16,7 @@ Happy logging!
 
 ## API
 
-The Uberlogger also has an API you can use to control the logger, which you can find [here](/API/).
+The Uberlogger also has an API you can use to control the logger, which you can find [here](/api/).
 
 ## Package content
 

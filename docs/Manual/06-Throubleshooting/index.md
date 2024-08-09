@@ -5,7 +5,7 @@
 ### Analog zero offset is very high (in volts range)
 
 Check that the red DIP-switches positions correspond with the settings
-on the [Configuration page](Configuration/Analog-channels#setting-the-channel-type-and-voltage-range-switches).
+on the [Configuration page](Configuration#analog--digital-channels).
 
 ### Analog zero offset deviates small, but significant
 

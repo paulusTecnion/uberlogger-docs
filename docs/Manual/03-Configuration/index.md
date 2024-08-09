@@ -150,12 +150,9 @@ To make a zero-offset calibration, make sure you disconnect all the
 wires from the inputs, including the temperature sensors. Note that you cannot do calibration while logging. Put all the DIP switches of the left DIP switch set to analog IN (down/ "On"). Then, click the `Start calibration` button under `Analog Calibration`, and confirm the message box that you disconnected the wires and put the DIP switches correct. A status message shown under the button will show when the calibration is
 done.
 
-![](media/image21.png)
-
 ![nothing](media/image22.png)
 
-Button to start calibration (left), calibration button with
-state under it (right)
+When the calibration button is pressed, the state of it is shown under it.
 
 ## File options
 
