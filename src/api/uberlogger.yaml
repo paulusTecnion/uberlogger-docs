@@ -3,18 +3,14 @@ components:
     LoggerConfig:
       properties:
         ADC_RESOLUTION:
-          description:
-            Resolution of ADC measurements. Can be either 12 bits or 16
-            bits.
+          description: Resolution of ADC measurements. Can be either 12 bits or 16 bits.
           enum:
             - 12
             - 16
           example: 12
           type: integer
         AIN_ENABLED:
-          description:
-            Enables or disables an analog channel AINx. True = enabled,
-            false = disabled.
+          description: Enables or disables an analog channel AINx. True = enabled, false = disabled.
           properties:
             AIN1_ENABLE:
               example: true
@@ -42,9 +38,7 @@ components:
               type: boolean
           type: object
         AIN_RANGE_SELECT:
-          description:
-            Select the range of an analog channel. False = +/- 10V, true
-            = +/- 60V
+          description: Select the range of an analog channel. False = +/- 10V, true = +/- 60V
           properties:
             AIN1_RANGE:
               example: false
@@ -72,9 +66,7 @@ components:
               type: boolean
           type: object
         DIN_ENABLED:
-          description:
-            Enables or disables a digital input. True = enabled, false
-            = disabled.
+          description: Enables or disables a digital input. True = enabled, false = disabled.
           properties:
             DIN1_ENABLE:
               example: true
@@ -95,14 +87,35 @@ components:
               example: true
               type: boolean
           type: object
+        EXT_TRIGGER_MODE:
+          description: Sets the external trigger mode of the logger.
+          enum:
+            - 0
+            - 1
+            - 2
+          example: 0
+          type: integer
+        EXT_TRIGGER_PIN:
+          description: Sets the pin for the external trigger input.
+          enum:
+            - 1
+            - 2
+            - 3
+            - 4
+            - 5
+            - 6
+          example: 1
+          type: integer
+        EXT_TRIGGER_DEBOUNCE_TIME:
+          description: Debounce time for the external trigger in milliseconds.
+          minimum: 0
+          maximum: 60000
+          example: 100
+          type: integer
         FILE_DECIMAL_CHAR:
           description: "Character used for decimal notation in files.
-
             - `0` - DOT: Decimal point.
-
-            - `1` - COMMA: Decimal comma.
-
-            "
+            - `1` - COMMA: Decimal comma."
           enum:
             - 0
             - 1
@@ -110,12 +123,8 @@ components:
           type: integer
         FILE_NAME_MODE:
           description: "File naming convention used by the logger.
-
             - `0` - SEQ_NUM: Sequential numbering.
-
-            - `1` - TIMESTAMP: Based on the timestamp.
-
-            "
+            - `1` - TIMESTAMP: Based on the timestamp."
           enum:
             - 0
             - 1
@@ -128,12 +137,8 @@ components:
           type: string
         FILE_SEPARATOR_CHAR:
           description: "Character used as a separator in files.
-
             - `0` - COMMA: Comma is used as a separator.
-
-            - `1` - SEMICOLON: Semicolon is used as a separator.
-
-            "
+            - `1` - SEMICOLON: Semicolon is used as a separator."
           enum:
             - 0
             - 1
@@ -141,22 +146,28 @@ components:
           type: integer
         LOG_MODE:
           description: "Logging mode of the device.
-
             - `0` - RAW: Stores raw binary data.
-
-            - `1` - CSV: Stores data in CSV format.
-
-            "
+            - `1` - CSV: Stores data in CSV format."
           enum:
             - 0
             - 1
           example: 0
           type: integer
         LOG_SAMPLE_RATE:
-          description:
-            "Frequency at which the logger samples data. \n- `0` - 1 Hz\n\
-            - `1` - 2 Hz\n- `2` - 5 Hz\n- `3` - 10 Hz\n- `4` - 25 Hz\n- `5` - 50 Hz\n\
-            - `6` - 100 Hz\n- `7` - 250 Hz\n"
+          description: "Frequency at which the logger samples data.
+            - `0` - Once per hour
+            - `1` - Once per 10 minutes
+            - `2` - Once per 5 minutes
+            - `3` - Once per minute
+            - `4` - Once per 10 seconds
+            - `5` - 1 Hz
+            - `6` - 2 Hz
+            - `7` - 5 Hz
+            - `8` - 10 Hz
+            - `9` - 25 Hz
+            - `10` - 50 Hz
+            - `11` - 100 Hz
+            - `12` - 250 Hz"
           enum:
             - 0
             - 1
@@ -166,12 +177,15 @@ components:
             - 5
             - 6
             - 7
+            - 8
+            - 9
+            - 10
+            - 11
+            - 12
           example: 1
           type: integer
         NTC_SELECT:
-          description:
-            Sets the analog input AINx as analog (=false) or NTC input
-            (=true).
+          description: Sets the analog input AINx as analog (=false) or NTC input (=true).
           properties:
             NTC1:
               example: true
@@ -198,6 +212,15 @@ components:
               example: false
               type: boolean
           type: object
+        AVERAGE_SAMPLES:
+          description: "Sets the sampling mode.
+            - `0` - Normal sampling (default)
+            - `1` - Average samples over time (use an IIR filter to average samples over time for sample rates below 1 Hz)."
+          enum:
+            - 0
+            - 1
+          example: 0
+          type: integer
         WIFI_CHANNEL:
           description: WiFi channel used by the device. Range is from 1 to 13.
           example: 1
@@ -205,14 +228,12 @@ components:
           minimum: 1
           type: integer
         WIFI_PASSWORD:
-          description:
-            WiFi password of access point the Uberlogger needs to connect
-            to.
+          description: WiFi password of access point the Uberlogger needs to connect to.
           example: your_secret_password
           maxLength: 20
           type: string
         WIFI_SSID:
-          description: WiFi SSID of accespoint the Uberlogger needs to connect to.
+          description: WiFi SSID of access point the Uberlogger needs to connect to.
           example: My Router SSID
           maxLength: 32
           type: string
@@ -226,7 +247,7 @@ components:
           type: integer
         FW_VERSION:
           description: Firmware version
-          example: 1.0.3_2024.03.23.14.40
+          example: 1.2.0_2024.09.21.14.40
           type: string
         LOGGER_STATE:
           description:
@@ -238,7 +259,7 @@ components:
             \ ERROR: error state\n- `7` - REBOOT: system about to reboot \n- `8` -\
             \ FIRMWARE_UPDATE: firmware update mode\n- `9` - SINGLE_SHOT: retrieve\
             \ a single ADC conversion\n- `10` - CALIBRATE: calibration mode enabled\n\
-            - `11` - FORMAT_SD_CARD: formatting SD card\n"
+            - `11` - FORMAT_SD_CARD: formatting SD card\n- `14` - WAITING_FOR_TRIGGER: Waiting for external trigger to turn high\n"
           enum:
             - 1
             - 2
@@ -251,8 +272,7 @@ components:
             - 9
             - 10
             - 11
-            - 12
-            - 13
+            - 14
           type: integer
         READINGS:
           properties:
