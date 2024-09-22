@@ -81,6 +81,34 @@ downscaled to 12-bits. This means that, even if the Uberlogger is set to
 12-bit resolution.
 :::
 
+#### Averaging
+
+For log frequencies below 1 Hz, you have the ability to either take the sample value at the sample rate or take the average value over the sample rate time.
+
+![Averaging setting](media/averaging.png)
+
+### Measurement mode
+
+![Measurement modes](media/measurement-mode.png)
+
+The UberLogger supports three measurement modes:
+
+- Continuous measurement: start and stop logging via the web interface or the physical button.
+
+- External trigger: The logger waits for an external trigger digital input to turn high to start logging. Live view is not working when no trigger has trigged a measurement.
+- External control: Start/stop logging is fully controlled via a digital input.
+
+  :::warning Important
+  The physical start / stop button and the web interface start / stop buttons are **not** working in external controller mode.
+  :::
+
+  For external trigger and external control modes, you can choose which digital input to use for triggering or control. You can also set the debounce time to stabilize the input and reduce noise in the trigger signals. By default, the debounce time is set to 100 ms, but it can be increased to a maximum of 60,000 ms to introduce a delayed measurement. The debounce timer resets if the input drops to a low level during the debounce period, restarting the timing process.
+
+:::info Note
+This averaging and measurement mode functions are available from v1.2.0 and higher.
+
+:::
+
 ### Analog & digital channels
 
 You can set the analog channel mode and voltage range under "Analog channels" as shown below.
@@ -93,6 +121,14 @@ You can enable or disable the channel by checking the "Enable" checkbox of the c
 
 :::info Note
 Enabling/disabling channels is only available from v1.0.4 on.
+:::
+
+#### Channel labels
+
+It's possible to change the labels of the channels. A maximum lenght of 16 characters is supported. No spaces or special characters are allowed, except hyphens '-' and underscores '\_'. The labels will be used in the CSVs that are created directly by the Uberlogger or using the conversion script.
+
+:::info Note
+Channel labels are only available from v1.2.0 on.
 :::
 
 #### Channel mode

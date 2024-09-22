@@ -26,6 +26,10 @@ If you are still experiencing measurement issues, please contact support
 via
 [www.uberlogger.com](https://www.uberlogger.com/support).
 
+## After zero calibration, I get values that seem to be very off.
+
+Please make sure that you disconnected all NTCs and disconnected all analog wires. Set all analog inputs to analog inputs and set the range to -10V / +10V and try to recalibrate the Uberlogger. If the issue persists, contact support.
+
 ## Wi-Fi problems
 
 ### When Unable to Connect to the Uberlogger Configured as a Hotspot:

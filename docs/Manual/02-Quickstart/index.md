@@ -38,15 +38,17 @@ Currently only SD cards up to 32GB and FAT are supported.
 
 - **Start logging** Start the logger by either:
 
-  1.  Pressing the "mode" button on the side of the Uberlogger for
-      about 1 second to start logging.
+By default the Uberlogger is set to "Continuous measurement" mode. With this you can do the following to start the logger.
 
-  2.  Pressing "Start logging" on the top right corner of the user
-      interface:
+1.  Pressing the "mode" button on the side of the Uberlogger for
+    about 1 second to start logging.
+
+2.  Pressing "Start logging" on the top right corner of the user
+    interface:
 
 > ![](media/image7.png)
 
-3.  Going to the "Logging" tab inside the and click on "Start logging":
+3.  Going to the `File browser` tab inside the and click on "Start logging":
 
 > ![](media/image8.png)
 >
@@ -61,7 +63,7 @@ Currently only SD cards up to 32GB and FAT are supported.
 
 > ![](media/image9.png)
 
-3.  Clicking "Stop logging" under the `Logging` tab:
+3.  Clicking "Stop logging" under the `File browser` tab:
 
 > ![](media/image10.png)
 
@@ -80,7 +82,7 @@ corrupt your data!
 :::
 
 5.  **Using the file browser:** you can download the csv from the file
-    browser which can be found under the `Logging` tab. This will always show the last page of the files in the directory.
+    browser which can be found under the `File browser` tab. This will always show the last page of the files in the directory.
     ![File browser](media/image16.png)
 
 # Connecting inputs

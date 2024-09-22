@@ -23,7 +23,7 @@
 | **Connectivity**                    |                                                            |                                                   |
 | NTC type                            |                                                            | 10 kOhm @ 25⁰C, beta=3950                         |
 | NTC connector                       |                                                            | JST-XH                                            |
-| Wi-Fi security                      |                                                            | WPA2 personal                                     |
+| Wi-Fi security                      |                                                            | WPA2/WPA3 personal                                |
 | USB-Port-C                          | Only used for power                                        |                                                   |
 | SD-Card                             |                                                            | MicroSD, Up to 32GB, FAT only, Max file size: 4GB |
 | **Mechanical**                      |                                                            |                                                   |
