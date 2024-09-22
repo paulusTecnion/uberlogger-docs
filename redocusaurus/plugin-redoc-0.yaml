@@ -94,7 +94,17 @@ components:
               type: boolean
           type: object
         EXT_TRIGGER_MODE:
-          description: Sets the external trigger mode of the logger.
+          description: >-
+            Sets the external trigger mode of the logger. - `0` - Continuous
+            measurement (default) - `1` - External trigger - after starting the
+            logger and arming it by activating "Start logger", the Uberlogger
+            will acquire data when a digital pin is set to HIGH. The trigger pin
+            can be set using the EXT_TRIGGER_PIN setting. - `2` - External
+            control - the Uberlogger will start logging and acquiring data after
+            the digital pin with value EXT_TRIGGER_PIN will be put HIGH. When
+            this pin is LOW, the logger will stop logging. The physical
+            start/stop button and the start/stop buttons in the web UI cannot be
+            used when setting measurement mode is used.
           enum:
             - 0
             - 1
