@@ -95,8 +95,8 @@ The UberLogger supports three measurement modes:
 
 - Continuous measurement: start and stop logging via the web interface or the physical button.
 
-- External trigger: The logger waits for an external trigger digital input to turn high to start logging. Live view is not working when no trigger has trigged a measurement.
-- External control: Start/stop logging is fully controlled via a digital input.
+- External trigger: In this mode, you first have to arm the logger by clicking the start button in the web interface or pushing the physiscal start/stop button. After this, the logger waits for an external trigger digital input to turn high to start logging and will stop the logging after the trigger pin turned low again. For each trigger a new file is made. The logger will go to idle when you press the physical or web interface start/stop button again. Note that live view is not updating when no trigger has trigged a measurement.
+- External control: Start/stop logging is controlled via a digital input. When your specified digital input is level HIGH it will start logging, taking into account the debounce time, and will stop when the level is LOW again. Each time the logger is turned on/off a new file will be made.
 
   :::warning Important
   The physical start / stop button and the web interface start / stop buttons are **not** working in external controller mode.

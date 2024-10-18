@@ -5,8 +5,12 @@ slug: /
 
 # Introduction
 
-![Uberlogger logo](../../static/img/logo_transparant1.png)
-![Uberlogger](uberlogger.webp)
+<img src={require('../../static/img/logo_transparant1.png').default} alt="Uberlogger logo" style={{ width: '25%',  display: 'block', margin: '0 auto' }} />
+
+<div style={{display: 'flex', justifyContent: 'space-between'}}>
+  <img src={require('./uberlogger.webp').default} alt="Uberlogger" style={{width: '48%'}} />
+  <img src={require('./uberlogger_ul01b.png').default} alt="Uberlogger UL01B" style={{width: '48%'}} />
+</div>
 
 Welcome to the Uberlogger User Manual. The Uberlogger allows you to measure and record voltage, temperature, and digital inputs. With its ability to log and store data directly to an SD card in the universally readable CSV (Comma Separated Values) format, Uberlogger is a simple, yet powerful measurement device.
 
