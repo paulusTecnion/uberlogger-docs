@@ -256,7 +256,7 @@ components:
           type: integer
         FW_VERSION:
           description: Firmware version
-          example: 1.2.0_2024.09.21.14.40
+          example: 1.3.0_2026.05.22.12.00
           type: string
         LOGGER_STATE:
           description: >
@@ -458,7 +458,7 @@ info:
     There is no throttling implemented, so calling them too often may overload
     the Uberlogger and could lead to unstable behaviour.
   title: Uberlogger API
-  version: 1.2.0
+  version: 1.3.0
 openapi: 3.0.3
 paths:
   /ajax/calibrate:
