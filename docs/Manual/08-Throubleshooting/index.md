@@ -1,98 +1,138 @@
-# Throubleshooting
+# FAQ
 
-## Measurements giving wrong values
+## Measurements & calibration issues
 
-### Analog zero offset is very high (in volts range)
+<details>
+  <summary><strong>Measurements Giving Wrong Values</strong></summary>
 
-Check that the red DIP-switches positions correspond with the settings
-on the [Configuration page](Configuration#analog--digital-channels).
+  <h3>High Analog Zero Offset (in volts range)</h3>
+  <p>Ensure that the red DIP-switch positions correspond to the settings on the <a href="Configuration#analog--digital-channels">Configuration page</a>.</p>
 
-### Analog zero offset deviates small, but significant
+  <h3>Small, Significant Analog Zero Offset</h3>
+  <p>If analog inputs are not 0V, calibrate the Uberlogger using the Calibration button. Please note that the values will always fluctuate around ±0.02V for 12-bit resolution and ±0.01V for 16-bit resolution.</p>
 
-If analog inputs are not 0V, then calibrate the Uberlogger using the
-Calibration button. Please note that the values will always fluctuate
-about ±0.02V for 12 bits and ±0.01V for 16 bits.
+</details>
 
-### I have 2 temperature sensors in open air, but the temperatures are not equal
+<details>
+  <summary><strong>Temperature Sensor Discrepancies</strong></summary>
 
-Having a temperature difference between sensors in open air can quickly
-happen.
+  <h3>Unequal Readings Between Two Open-Air Temperature Sensors</h3>
+  <p>A temperature difference between sensors in open air can occur due to environmental factors.</p>
 
-### Digital inputs are not triggering
+</details>
 
-Digital inputs require a minimum of 2.0V for triggering to go up.
+<details>
+  <summary><strong>Digital Input Issues</strong></summary>
 
-If you are still experiencing measurement issues, please contact support
-via
-[www.uberlogger.com](https://www.uberlogger.com/support).
+  <h3>Digital Inputs Not Triggering</h3>
+  <p>Digital inputs require a minimum of 2.0V to trigger a state change.</p>
 
-## After zero calibration, I get values that seem to be very off.
+</details>
 
-Please make sure that you disconnected all NTCs and disconnected all analog wires. Set all analog inputs to analog inputs and set the range to -10V / +10V and try to recalibrate the Uberlogger. If the issue persists, contact support.
+<details>
+  <summary><strong>Calibration Issues After Zero Calibration</strong></summary>
 
-## Wi-Fi problems
+  <h3>Zero Calibration Results Seem Off</h3>
+  <p>Make sure all NTCs and analog wires are disconnected. Set all analog inputs to the analog input mode and select a range of -10V / +10V. Then, recalibrate the Uberlogger. If the issue persists, please contact support.</p>
 
-### When Unable to Connect to the Uberlogger Configured as a Hotspot:
+</details>
 
-- **Check Proximity:** Ensure that you are within range of the
-  Uberlogger\'s hotspot signal. Walls or other obstacles can degrade
-  the signal quality.
+## Wi-Fi issues
 
-- **Reboot the Uberlogger:** Power-cycle or reset the Uberlogger to
-  refresh its settings and try connecting again.
+<details>
+  <summary><strong>Unable to Connect to Uberlogger in Hotspot Mode</strong></summary>
 
-- **Check for Interference:** If you are in an area with multiple
-  Wi-Fi networks, check if the Wi-Fi channel of the Uberlogger hotspot
-  channel is not interfering with another network. You can change the
-  network channel of the hotspot as described [in this section](Configuration#hotspot-wi-fi-channel).
+  <ul>
+    <li><strong>Check Proximity:</strong> Ensure you are within range of the Uberlogger's hotspot signal. Walls or obstacles can degrade signal quality.</li>
+    <li><strong>Reboot the Uberlogger:</strong> Power-cycle or reset the Uberlogger to refresh its settings and try connecting again.</li>
+    <li><strong>Check for Interference:</strong> If you are in an area with multiple Wi-Fi networks, check if the Uberlogger hotspot channel is not interfering with another network. You can change the network channel as described <a href="Configuration#hotspot-wi-fi-channel">here</a>.</li>
+  </ul>
 
-### When Unable to Connect the Uberlogger to a Local Access Point:
+</details>
 
-- **Check your access point frequency:** currently only 2.4 GHz
-  networks are supported.
+<details>
+  <summary><strong>Unable to Connect the Uberlogger to a Local Access Point</strong></summary>
 
-- **Check RSSI Signal:** Verify that the RSSI (Received Signal
-  Strength Indicator) signal of the local access point is strong
-  enough for the Uberlogger to connect. It should have an RSSI of
-  minimum -80 dB.
+  <ul>
+    <li><strong>Check Access Point Frequency:</strong> Ensure the access point is operating on the 2.4 GHz band, as 5 GHz networks are not supported.</li>
+    <li><strong>Check RSSI Signal:</strong> Verify that the RSSI (Received Signal Strength Indicator) of the access point is strong enough. The signal strength should be better than -80 dB.</li>
+    <li><strong>Confirm Password:</strong> Ensure the correct password is entered for the local access point.</li>
+    <li><strong>Change Wi-Fi Channel:</strong> Ensure the Wi-Fi channel set on the access point is compatible with the Uberlogger.</li>
+    <li><strong>Reboot Both Devices:</strong> Power-cycle both the Uberlogger and the local access point, and try reconnecting after a minute.</li>
+    <li><strong>Guest and Enterprise Networks:</strong> Uberlogger does not support guest networks that require login portals or networks with enterprise-level certificates.</li>
+    <li><strong>Check for MAC Filtering:</strong> If the local access point has MAC address filtering enabled, add the Uberlogger's MAC address to the whitelist.</li>
+  </ul>
 
-- **Confirm Password:** Make sure that you've entered the correct
-  password for the local access point.
+</details>
 
-- **Change Wi-Fi Channel:** Ensure that the Wi-Fi channel set on the
-  local access point is compatible with the Uberlogger. You may need
-  to change either device setting.
+<details>
+  <summary><strong>Browser keeps asking for a login</strong></summary>
 
-- **Reboot Both Devices:** Try power-cycling both the Uberlogger and
-  the local access point. Wait for a minute or two before powering
-  them back on.
+  <p>If the web interface login is enabled, the browser shows a native dialog asking for a username and password. The username is fixed as <code>admin</code> &mdash; only the password is user-configurable. Make sure the caps lock is off and that you are typing the password exactly as configured (passwords are case-sensitive).</p>
 
-- **Guest networks and enterprise networks:** currently the Uberlogger
-  does not support guest networks which require acceptance of network
-  access conditions. Also, networks with certificates are not
-  supported.
+  <p>If you have forgotten the web interface password, press and hold the "mode" button for 10 seconds to restore Wi-Fi defaults and then power-cycle the device. If the login still persists, restore default settings via the Configuration page (only possible if you can still log in) or contact <a href="https://www.uberlogger.com/contact.html">customer support</a>.</p>
 
-- **Check for MAC Filtering:** Ensure that your local access point
-  doesn't have MAC address filtering enabled. If it does, add the
-  Uberlogger's MAC address to the allowed list.
+</details>
 
-## Red LED flashing & Error codes
+<details>
+  <summary><strong>Forgot the Wi-Fi hotspot password</strong></summary>
 
-In case an error occurs, the red LED on the Uberlogger will be flashing
-and you can see the error code on the configuration page. Each error
-code is described in the table below.
+  <p>If you configured a WPA2/WPA3 password for the Uberlogger hotspot and can no longer connect, press and hold the "mode" button for 10 seconds. This resets the Wi-Fi configuration back to defaults (open hotspot, channel 1, no client mode) so you can rejoin and reconfigure the password.</p>
 
-| Error         | Meaning                     | Solution                                                                                                                                                               |
-| ------------- | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1             | Unable to open log file.    | - Please check the SD card for errors on your PC or if the SD card is full.                                                                                            |
-| 4, 8, 32, 256 | Internal hardware error     | - Please contact [customer support](https://www.uberlogger.com/support) and report the corresponding error code.                                                       |
-| 16            | Unable to write on SD card. | - Check the free disk space of the SD card. <br/>- Check if you read/write the card on another device. <br/>- If you still get this error, contact Uberlogger support. |
-| 32            | Sync error                  | - Unable to synchronize with support chip. <br/>- Contact Uberlogger [customer support](https://www.uberlogger.com/support) .                                          |
-| 128           | Unable to mount SD card     | - Try reading the SD card on a PC and then putting the SD card back into the Uberlogger; it may solve the issue. <br/>- If not, try another SD card.                   |
-| 512           | No free space               | You need at least 200 kB of free space on the SD card. Try removing files to free up space on the SD card.                                                             |
-| 4096          | Max file size reached       | The maximum file size has been exceeded. Currently limited to 4000000000 bytes.                                                                                        |
+</details>
 
-## Customer support
+## Red LED flashing & error codes
 
-You can contact customer support at Uberlogger by going to
-[www.uberlogger.com/support](http://www.uberlogger.com/support).
+<details>
+  <summary><strong>Overview of codes</strong></summary>
+
+  <p>In case of an error, the red LED on the Uberlogger will flash, and you can see the error code on the configuration page. Below is the list of error codes and their meanings.</p>
+
+  <table>
+    <tr>
+      <th>Error Code</th>
+      <th>Meaning</th>
+      <th>Solution</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Unable to open log file.</td>
+      <td>Check the SD card for errors on your PC or if the SD card is full.</td>
+    </tr>
+    <tr>
+      <td>4, 8, 32, 256</td>
+      <td>Internal hardware error</td>
+      <td>Contact <a href="https://www.uberlogger.com/contact.html">customer support</a> and report the error code.</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>Unable to write on SD card.</td>
+      <td>Check free disk space. If the issue persists, contact support.</td>
+    </tr>
+    <tr>
+      <td>32</td>
+      <td>Sync error</td>
+      <td>Unable to synchronize with support chip. Contact <a href="https://www.uberlogger.com/contact.html">customer support</a>.</td>
+    </tr>
+    <tr>
+      <td>128</td>
+      <td>Unable to mount SD card</td>
+      <td>Try reading the SD card on a PC and reinsert it into the Uberlogger. If it fails, try another SD card.</td>
+    </tr>
+    <tr>
+      <td>512</td>
+      <td>No free space</td>
+      <td>You need at least 200 kB of free space. Remove files from the SD card to free up space.</td>
+    </tr>
+    <tr>
+      <td>4096</td>
+      <td>Max file size reached</td>
+      <td>The maximum file size of 4 GB has been exceeded.</td>
+    </tr>
+  </table>
+
+</details>
+
+## Customer Support
+
+<p>If you cannot solve the issue using the above FAQ, you can contact customer support by visiting <a href="https://www.uberlogger.com/contact.html">www.uberlogger.com/contact</a>.</p>

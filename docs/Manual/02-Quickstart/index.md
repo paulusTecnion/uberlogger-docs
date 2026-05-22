@@ -23,6 +23,14 @@ Once connected, open your preferred browser, and navigate to
 [http://192.168.4.1](http://192.168.4.1/). You should now be viewing the
 Uberlogger live data page.
 
+:::info Note
+Out of the box, the hotspot is **open** (no Wi-Fi password) and the web
+interface requires **no login**. Both can optionally be secured later
+from the [Configuration → Network](/Manual/Configuration#network-configuration)
+page. If a login has been configured, the browser will prompt for the
+username `admin` and the password you set.
+:::
+
 ## Starting and stopping logging
 
 Put an SD card formatted as FAT partition into the SD card slot on your

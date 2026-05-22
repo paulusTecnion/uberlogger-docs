@@ -1,28 +1,49 @@
 # Technical datasheet
 
-- 8 Analog or NTC inputs (selectable)
-- 6 digital inputs
-- Support for external trigger and external control through digital inputs
-- Log frequencies: once per hour, once per 10 minutes, once per 5 minutes, once per minute, once per 10 seconds, 1 Hz, 2 Hz, 5 Hz, 10 Hz, 25 Hz, 50 Hz, 100 Hz, 250 Hz
-- ADC resolution 12-bit or 16-bit
-- Range of +/-10V or +/-60V (selectable)
-- Works via USB-C powered port (300 mA max.)
-- 2.4GHz Wi-Fi connection modes
-  - Access point
-  - Client mode (connect to access point)
-  - Both modes can be active simultaneously
-- Web interface
-  - 1 Hz live data view of the channels
-  - Start / stop logging
-  - Configure settings
-- Two physical buttons: one for starting and stopping logging, one to reset
-- LEDs: log status (green) and error state (red)
-- API control for configuring and controlling the logger and retrieving data
-- RTC clock to keep track of time which is also stored in the CSV as UTC time (no time zone supported)
-  - Time will be synced to your PCs time through the web interface
-  - A lithium cell is included in the board to keep time running when power is off.
-- 1x USB-C cable and 8x NTCs included
-- Firmware upgradable for new features
+## Key Features
+
+<ul>
+  <li><strong>Analog & NTC Inputs:</strong> 8 channels (selectable between analog and NTC)</li>
+  <li><strong>Digital Inputs:</strong> 6 channels</li>
+  <li><strong>External Control:</strong> Supports external trigger and control through digital inputs</li>
+  <li><strong>Logging Frequencies:</strong> </li>
+    <ul>
+      <li>Once per hour, once per 10 minutes, once per 5 minutes, once per minute</li>
+      <li>High-speed options: 10 seconds, 1 Hz, 2 Hz, 5 Hz, 10 Hz, 25 Hz, 50 Hz, 100 Hz, 250 Hz</li>
+    </ul>
+  
+  <li><strong>ADC Resolution:</strong> Selectable between 12-bit or 16-bit</li>
+  <li><strong>Voltage Range:</strong> +/-10V or +/-60V (selectable)</li>
+  <li><strong>Power Supply:</strong> USB-C powered (300 mA max.)</li>
+  <li><strong>Wi-Fi:</strong> 2.4GHz with modes: </li>
+    <ul>
+      <li>Access point</li>
+      <li>Client mode (connect to access point)</li>
+      <li>Both modes can be active simultaneously</li>
+    </ul>
+  
+  <li><strong>Web Interface Features:</strong></li>
+    <ul>
+      <li>1 Hz live data view of the channels</li>
+      <li>Start / stop logging</li>
+      <li>Configure settings</li>
+    </ul>
+  
+  <li><strong>Buttons:</strong> 2 physical buttons for start/stop logging and reset</li>
+  <li><strong>LEDs:</strong> Log status (green), error state (red)</li>
+  <li><strong>API Control:</strong> Configure, control the logger, and retrieve data</li>
+  <li><strong>RTC Clock:</strong></li>
+    <ul>
+      <li>Tracks time and stores it as UTC in the CSV (no time zone support)</li>
+      <li>Time is synced to your PC through the web interface</li>
+      <li>Includes a lithium cell to keep time running when power is off</li>
+    </ul>
+  
+  <li><strong>Included Accessories:</strong> 1x USB-C cable, 1x32 GB micro SD-card and 8x NTCs</li>
+  <li><strong>Firmware:</strong> Upgradable for new features</li>
+</ul>
+
+## Electrical specifications
 
 | **Parameter**                       | **Description**                                            | **Value**                                         |
 | ----------------------------------- | ---------------------------------------------------------- | ------------------------------------------------- |

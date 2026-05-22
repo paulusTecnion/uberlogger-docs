@@ -9,6 +9,18 @@ In the user interface portal, you can configure the Uberlogger under the
 
 ![A close-up of a sign Description automatically generated](media/image16.png)
 
+:::info Note
+From firmware v1.3.0 on, the Configuration page is organised as a set of sub-tabs that group related settings together:
+
+- **Channels** — analog/digital channel mode, range, labels, calibration
+- **Acquisition** — sample rate, resolution, averaging, measurement mode, time sync
+- **Files** — file format, naming, CSV options, split size
+- **Network** — Wi-Fi hotspot, client mode and web interface login
+- **System** — firmware info, import/export, restore defaults
+
+The active sub-tab is remembered between page reloads in the same browser session.
+:::
+
 ## Logger timestamp
 
 The Uberlogger includes a time logging feature in the CSV data format.
@@ -206,7 +218,7 @@ With this option you can directly save your data to a CSV file. In the CSV optio
 
 #### Raw data
 
-In order to reduce data, you can use the raw data logging option. This will store the data in raw bytes, after which you will need to convert the data to a CSV using the Python conversion script or the Windows conversion tool (both can be found at the [download page](https://wwww.uberlogger.com/support) of Uberlogger.com)
+In order to reduce data, you can use the raw data logging option. This will store the data in raw bytes, after which you will need to convert the data to a CSV using the Python conversion script or the Windows conversion tool (both can be found in the [Downloads section](https://www.uberlogger.com/#downloads) of Uberlogger.com)
 
 ### File name mode
 
@@ -246,10 +258,12 @@ By default, the Uberlogger will use your prefix for the file name and the log fi
 Note that the file size is approximately the set split size and not exact.
 :::
 
-## Wi-Fi configuration
+## Network configuration
 
-The Uberlogger interface is accessed over Wi-Fi. The Uberlogger can
-operate in two modes: hotspot mode and hotspot + client mode.
+The Uberlogger interface is accessed over Wi-Fi. All Wi-Fi and web
+interface security settings are grouped under the **Network** sub-tab of
+the Configuration page. The Uberlogger can operate in two modes: hotspot
+mode and hotspot + client mode.
 
 ### Hotspot mode
 
@@ -259,7 +273,27 @@ In hotspot mode, you can connect to Uberlogger via any device with an
 integrated Wi-Fi adapter and access the control panel through
 `<http://192.168.4.1>` via your favourite web browser. Note that using
 this mode will disconnect you from the internet while you are connected
-to the Uberlogger hotspot. The SSID is of the hotspot will be in the form of `Uberlogger-XXXXXXXX` and cannot be changed.
+to the Uberlogger hotspot. The SSID of the hotspot will be in the form of `Uberlogger-XXXXXXXX` and cannot be changed.
+
+#### Hotspot security (WPA2/WPA3)
+
+From firmware v1.3.0 on, the Uberlogger's own access point can be
+configured as either an **open** network or **WPA2/WPA3 personal**
+secured network.
+
+- **Open (default):** No password required to connect to
+  `Uberlogger-XXXXXXXX`. Any device in range can join the hotspot.
+- **WPA2/WPA3 personal:** Pick a password of 8 to 63 characters.
+  Clients must supply this password when joining the hotspot.
+
+Use the security mode selector under the Network tab, set a password if
+applicable, and click `Save Wi-Fi settings` to apply.
+
+:::caution Important
+If you lose the hotspot password, press and hold the "mode" button for
+10 seconds to reset the Wi-Fi settings back to defaults (open hotspot,
+channel 1, no client mode).
+:::
 
 ### Hotspot Wi-Fi channel
 
@@ -274,14 +308,24 @@ When changing the Wi-Fi channel, you need to manually reset the logger to make t
 
 ### Hotspot + Client mode
 
-In Hotspot + client mode, the Uberlogger will have its hotspot mode enabled and it can connect to another Wi-Fi network you set. Select `Hotspot + Client mode` and fill in the SSID and password of the Wi-Fi network you want to connect to:
+In Hotspot + client mode, the Uberlogger will have its hotspot mode enabled and it can connect to another Wi-Fi network you set. Select `Hotspot + Client mode` and fill in the SSID of the Wi-Fi network you want to connect to:
 
 ![A screenshot of a computer Description automatically generated](media/image24.png)
 
+For the client network you can choose between:
+
+- **Open network:** No password needed (e.g., an open guest network
+  without a captive portal).
+- **Password protected:** Enter the WPA2/WPA3 personal password of the
+  target network.
+
 :::info Note
 
-- only 2.4GHz networks with WPA2 / WPA3 personal security keys are supported
-- (open) Wi-Fi networks that require Wi-Fi logon are **not** supported.
+- Only 2.4 GHz networks are supported.
+- Only WPA2 / WPA3 personal security is supported in addition to open
+  networks.
+- (Open) Wi-Fi networks that require a captive-portal/Wi-Fi logon are
+  **not** supported.
 
 :::
 
@@ -301,6 +345,41 @@ successful.
 ### Unable to connect to Uberlogger via access point
 
 In case the connection fails, and you are not able to connect to your Uberlogger with your access point, try to connect directly to the Hotspot SSID described earlier. You can also press and hold the "mode" button for 10 seconds to reset the Wi-Fi mode back to Hotspot mode only.
+
+## Web interface login
+
+:::info Note
+Web interface login is available from firmware v1.3.0 on.
+:::
+
+The web interface (and all REST/file-server endpoints) can optionally be
+protected with HTTP Basic Authentication. The setting lives under the
+**Network** sub-tab on the Configuration page.
+
+- **No login required (default):** Anyone with network access to the
+  device can use the web interface and the REST API.
+- **Password protected:** Enable the login option and set a password.
+  The username is fixed as **`admin`**; only the password is
+  user-configurable. When enabled, the browser shows a native login
+  dialog the first time you navigate to the device after a power cycle
+  or after the password changes.
+
+To enable the login:
+
+1. Open the Configuration page and switch to the **Network** sub-tab.
+2. Enable "Require login" (or equivalent toggle) and enter a password.
+3. Click `Save` to apply. You will be prompted to log in on the next
+   request.
+
+To disable the login again, simply clear the password and save.
+
+:::warning Important
+HTTP Basic Authentication transmits the username and password in plain
+text, because the Uberlogger serves the interface over HTTP (not HTTPS).
+Treat this login as a deterrent against casual access on a shared
+network, **not** as strong protection against an attacker on the same
+network. Pick a password you do not reuse anywhere else.
+:::
 
 ## Restore defaults
 
