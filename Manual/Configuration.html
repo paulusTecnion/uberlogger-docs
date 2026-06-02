@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">Configuration | Uberlogger</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://docs.uberlogger.com/Manual/Configuration"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Configuration | Uberlogger"><meta data-rh="true" name="description" content="In the user interface portal, you can configure the Uberlogger under the"><meta data-rh="true" property="og:description" content="In the user interface portal, you can configure the Uberlogger under the"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://docs.uberlogger.com/Manual/Configuration"><link data-rh="true" rel="alternate" href="https://docs.uberlogger.com/Manual/Configuration" hreflang="en"><link data-rh="true" rel="alternate" href="https://docs.uberlogger.com/Manual/Configuration" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Configuration","item":"https://docs.uberlogger.com/Manual/Configuration/"}]}</script><link rel="stylesheet" href="/assets/css/styles.159434f6.css">
-<script src="/assets/js/runtime~main.01839e3d.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.490b5540.js" defer="defer"></script>
 <script src="/assets/js/main.f56ba567.js" defer="defer"></script>
 </head>
 <body>
@@ -182,8 +182,9 @@ Clients must supply this password when joining the hotspot.</li>
 <p>Use the security mode selector under the Network tab, set a password if
 applicable, and click <code>Save Wi-Fi settings</code> to apply.</p>
 <div class="theme-admonition theme-admonition-caution admonition_xJq3 alert alert--warning"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>Important</div><div class="admonitionContent_BuS1"><p>If you lose the hotspot password, press and hold the &quot;mode&quot; button for
-10 seconds to reset the Wi-Fi settings back to defaults (open hotspot,
-channel 1, no client mode).</p></div></div>
+5 seconds to reset all credentials back to defaults: open hotspot,
+channel 1, no client mode, and the web interface login cleared. The
+status LED blinks to confirm the reset.</p></div></div>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="hotspot-wi-fi-channel">Hotspot Wi-Fi channel<a href="#hotspot-wi-fi-channel" class="hash-link" aria-label="Direct link to Hotspot Wi-Fi channel" title="Direct link to Hotspot Wi-Fi channel" translate="no">​</a></h3>
 <p>If you are experiencing connection problems like a slow connection or
 lengthy delays, you can try to change the Wi-Fi channel. You can set the
@@ -215,7 +216,7 @@ successful.</p>
 <li class="">A minimum Wi-Fi signal strength of -80 dB is required to connect with you Wi-Fi access point</li>
 </ul></div></div>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="unable-to-connect-to-uberlogger-via-access-point">Unable to connect to Uberlogger via access point<a href="#unable-to-connect-to-uberlogger-via-access-point" class="hash-link" aria-label="Direct link to Unable to connect to Uberlogger via access point" title="Direct link to Unable to connect to Uberlogger via access point" translate="no">​</a></h3>
-<p>In case the connection fails, and you are not able to connect to your Uberlogger with your access point, try to connect directly to the Hotspot SSID described earlier. You can also press and hold the &quot;mode&quot; button for 10 seconds to reset the Wi-Fi mode back to Hotspot mode only.</p>
+<p>In case the connection fails, and you are not able to connect to your Uberlogger with your access point, try to connect directly to the Hotspot SSID described earlier. You can also press and hold the &quot;mode&quot; button for 5 seconds to reset the Wi-Fi mode back to Hotspot mode only.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="web-interface-login">Web interface login<a href="#web-interface-login" class="hash-link" aria-label="Direct link to Web interface login" title="Direct link to Web interface login" translate="no">​</a></h2>
 <div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>Note</div><div class="admonitionContent_BuS1"><p>Web interface login is available from firmware v1.3.0 on.</p></div></div>
 <p>The web interface (and all REST/file-server endpoints) can optionally be
