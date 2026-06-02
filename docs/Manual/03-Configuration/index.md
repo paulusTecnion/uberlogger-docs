@@ -262,8 +262,8 @@ Note that the file size is approximately the set split size and not exact.
 
 The Uberlogger interface is accessed over Wi-Fi. All Wi-Fi and web
 interface security settings are grouped under the **Network** sub-tab of
-the Configuration page. The Uberlogger can operate in two modes: hotspot
-mode and hotspot + client mode.
+the Configuration page. The Uberlogger can operate in three Wi-Fi modes:
+hotspot mode, hotspot + client mode, and client mode only.
 
 ### Hotspot mode
 
@@ -339,8 +339,29 @@ successful.
 
 :::info Note
 
-- A minimum Wi-Fi signal strength of -80 dB is required to connect with you Wi-Fi access point
+- A minimum Wi-Fi signal strength of -80 dBm is required to connect with your Wi-Fi access point
 
+:::
+
+### Client mode only
+
+:::info Note
+Client mode only is available from firmware v1.3.1 on.
+:::
+
+In `Client mode only`, the Uberlogger **turns its own hotspot off** and only
+joins the Wi-Fi network you configure, just like the client half of
+Hotspot + Client mode. Use this when you want the logger permanently on
+your own network and do not need the `Uberlogger-XXXXXXXX` hotspot. The
+client network options (open or WPA2/WPA3 personal) and the 2.4 GHz-only
+restriction are the same as for Hotspot + Client mode.
+
+:::caution Important
+Because there is no hotspot in this mode, the only way to reach the
+device if it cannot join the configured network (wrong password, network
+out of range, etc.) is to press and hold the "mode" button for 5 seconds.
+This resets the Wi-Fi configuration back to the open hotspot defaults so
+you can reconnect and reconfigure.
 :::
 
 ### Unable to connect to Uberlogger via access point

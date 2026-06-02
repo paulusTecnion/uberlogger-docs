@@ -109,7 +109,7 @@ then screwing it tight.
 
 ## NTC inputs
 
-Below are the NTC connector inputs shown. The top ones are NTC1 till NTC4. Bottom row NTC4 till NTC7
+Below are the NTC connector inputs shown. The top ones are NTC1 till NTC4. Bottom row NTC5 till NTC8
 ![A close up of a computer part Description automatically generated](media/image14.png)
 
 In case you want to use the NTC, you can plug it directly into the socket you want to. The top 4 connectors are connected to channel 1 to 4 and the bottom 4 connectors to channel 5 to 8, respectively.

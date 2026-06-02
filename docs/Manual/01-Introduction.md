@@ -51,7 +51,7 @@ break the Uberlogger.
 ### Temperature Range
 
 The Uberlogger is suitable for use in environments with temperatures
-ranging from 10 °C to +50°C. Operating the device outside this
+ranging from 10 °C to +50 °C. Operating the device outside this
 temperature range may lead to inaccurate measurements or damage to
 internal components.
 
@@ -85,9 +85,10 @@ operation.
 
 ### Environmental Conditions
 
-Operate the Uberlogger within the specified temperature range (15°C to
-+50°C) and avoid exposing it to extreme temperatures or environmental
-conditions that could affect its performance.
+Operate the Uberlogger within the specified temperature range (10 °C to
++50 °C, see *Temperature Range* above) and avoid exposing it to extreme
+temperatures or environmental conditions that could affect its
+performance.
 
 ### Proper Power Down
 
