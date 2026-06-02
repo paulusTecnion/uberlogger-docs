@@ -291,8 +291,9 @@ applicable, and click `Save Wi-Fi settings` to apply.
 
 :::caution Important
 If you lose the hotspot password, press and hold the "mode" button for
-10 seconds to reset the Wi-Fi settings back to defaults (open hotspot,
-channel 1, no client mode).
+5 seconds to reset all credentials back to defaults: open hotspot,
+channel 1, no client mode, and the web interface login cleared. The
+status LED blinks to confirm the reset.
 :::
 
 ### Hotspot Wi-Fi channel
@@ -344,7 +345,7 @@ successful.
 
 ### Unable to connect to Uberlogger via access point
 
-In case the connection fails, and you are not able to connect to your Uberlogger with your access point, try to connect directly to the Hotspot SSID described earlier. You can also press and hold the "mode" button for 10 seconds to reset the Wi-Fi mode back to Hotspot mode only.
+In case the connection fails, and you are not able to connect to your Uberlogger with your access point, try to connect directly to the Hotspot SSID described earlier. You can also press and hold the "mode" button for 5 seconds to reset the Wi-Fi mode back to Hotspot mode only.
 
 ## Web interface login
 

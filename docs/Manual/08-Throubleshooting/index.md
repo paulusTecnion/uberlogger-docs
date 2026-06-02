@@ -70,14 +70,14 @@
 
   <p>If the web interface login is enabled, the browser shows a native dialog asking for a username and password. The username is fixed as <code>admin</code> &mdash; only the password is user-configurable. Make sure the caps lock is off and that you are typing the password exactly as configured (passwords are case-sensitive).</p>
 
-  <p>If you have forgotten the web interface password, press and hold the "mode" button for 10 seconds to restore Wi-Fi defaults and then power-cycle the device. If the login still persists, restore default settings via the Configuration page (only possible if you can still log in) or contact <a href="https://www.uberlogger.com/contact.html">customer support</a>.</p>
+  <p>If you have forgotten the web interface password, press and hold the "mode" button for 5 seconds. This clears all credentials (web interface password, hotspot password and Wi-Fi client password) and restores the open hotspot defaults; the status LED blinks to confirm. If the login still persists, power-cycle the device, restore default settings via the Configuration page (only possible if you can still log in), or contact <a href="https://www.uberlogger.com/contact.html">customer support</a>.</p>
 
 </details>
 
 <details>
   <summary><strong>Forgot the Wi-Fi hotspot password</strong></summary>
 
-  <p>If you configured a WPA2/WPA3 password for the Uberlogger hotspot and can no longer connect, press and hold the "mode" button for 10 seconds. This resets the Wi-Fi configuration back to defaults (open hotspot, channel 1, no client mode) so you can rejoin and reconfigure the password.</p>
+  <p>If you configured a WPA2/WPA3 password for the Uberlogger hotspot and can no longer connect, press and hold the "mode" button for 5 seconds. This resets the Wi-Fi configuration back to defaults (open hotspot, channel 1, no client mode) so you can rejoin and reconfigure the password.</p>
 
 </details>
 
