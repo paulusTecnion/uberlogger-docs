@@ -62,3 +62,34 @@ double-click on an axis, it will auto-scale just that axis.
 Clicking the camera icon
 ![](media/image36.png) will allow you to take a snapshot of
 your current plot view and download it as a PNG image.
+
+## Live time window
+
+From firmware **v1.3.2** on, a row of buttons above the chart
+(**1m / 5m / 15m / 1h / All**) sets how much recent history is shown. The
+chart follows the newest data ("live"); zooming or panning pauses
+following, and double-clicking the plot (or picking a window) resumes it.
+A small indicator next to the buttons shows whether the chart is
+**live** or **paused**. "All" shows the full retained history, up to a
+maximum of about 6 hours.
+
+## Data history
+
+The live chart keeps roughly the last **6 hours** of data per channel.
+This history is stored in your browser, so it **survives a page refresh**
+and keeps accumulating even while you are on other tabs (File browser,
+Configuration, etc.) — you no longer lose the chart by navigating away or
+reloading.
+
+## Clearing the chart
+
+Use the **Clear** button above the chart to empty the stored history and
+start the live view from scratch. New samples begin filling the chart
+again immediately.
+
+## Connection indicator
+
+The status dot next to the time-window buttons reflects the live
+connection to the Uberlogger: it is **green** while data is being
+received and turns **red** ("connection lost") if the browser can no
+longer reach the device.
