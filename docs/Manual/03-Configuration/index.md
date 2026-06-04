@@ -292,8 +292,32 @@ applicable, and click `Save Wi-Fi settings` to apply.
 :::caution Important
 If you lose the hotspot password, press and hold the "mode" button for
 5 seconds to reset all credentials back to defaults: open hotspot,
-channel 1, no client mode, and the web interface login cleared. The
-status LED blinks to confirm the reset.
+visible (broadcast) SSID, channel 1, no client mode, and the web
+interface login cleared. The status LED blinks to confirm the reset.
+:::
+
+#### Hide the hotspot SSID
+
+:::info Note
+Hiding the hotspot SSID is available from firmware v1.3.2 on.
+:::
+
+By default the hotspot broadcasts its network name (`Uberlogger-XXXXXXXX`),
+so it appears in the Wi-Fi network list of nearby devices. Enable **Hide
+hotspot network name (SSID)** under the Network tab if you would rather the
+hotspot not advertise itself.
+
+When the SSID is hidden, the hotspot keeps working exactly as before, but it
+no longer shows up in Wi-Fi scan lists. To connect, you must add the network
+manually on your device and type the SSID (`Uberlogger-XXXXXXXX`) yourself.
+
+:::caution Important
+- Hiding the SSID is a privacy/tidiness option, **not** a security measure —
+  the network name can still be observed by anyone monitoring Wi-Fi traffic.
+  Use the WPA2/WPA3 hotspot security above to actually protect the hotspot.
+- After changing this setting, manually reset the logger to make it active.
+- If you forget the SSID, a 5-second "mode" button press resets the hotspot
+  to its defaults, which also makes it broadcast (visible) again.
 :::
 
 ### Hotspot Wi-Fi channel
