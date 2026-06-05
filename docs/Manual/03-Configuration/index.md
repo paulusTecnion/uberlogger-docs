@@ -299,6 +299,22 @@ interface security settings are grouped under the **Network** sub-tab of
 the Configuration page. The Uberlogger can operate in three Wi-Fi modes:
 hotspot mode, hotspot + client mode, and client mode only.
 
+:::note Changing the Wi-Fi mode (firmware v1.3.2 and later)
+From firmware **v1.3.2** on, **changing the Wi-Fi mode and saving restarts
+the Uberlogger** (about 10 seconds) so the new mode is applied cleanly.
+Because the network the device is on can change, you may need to reconnect:
+
+- **To/from *Client mode only*** — the hotspot turns off or on, so reconnect
+  your computer to the right network (your own Wi-Fi, or the Uberlogger
+  hotspot at `http://192.168.4.1`).
+- **Staying reachable at the same address** (for example *Hotspot + Client*
+  saved while you are on the hotspot) — the web page detects this and
+  **reloads automatically** once the device is back; otherwise it shows
+  exactly where to reconnect.
+
+Changing other (non-mode) settings does **not** restart the device.
+:::
+
 ### Hotspot mode
 
 ![A white background with black text Description automatically generated](media/image23.png)
