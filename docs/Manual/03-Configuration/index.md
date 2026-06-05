@@ -45,6 +45,40 @@ The time shown in the user interface is representing the time as the device you 
 
 ---
 
+### Automatic time synchronization (NTP)
+
+From firmware **v1.3.2** on, the Uberlogger can keep its clock correct
+automatically using an **NTP** (Network Time Protocol) server, so you no
+longer have to press "Synchronize to local time" by hand.
+
+NTP only works when the Uberlogger is connected to your own network as a
+**Wi-Fi client** — in *Hotspot + Client* or *Client mode* (see
+[Network configuration](#network-configuration)). In hotspot-only mode
+there is no internet connection, so automatic synchronization is not
+available.
+
+The settings live on the **Network** sub-tab of the Configuration page:
+
+- **Automatic time sync** — enable or disable NTP. Enabled by default.
+- **NTP server** — which time server to use. Defaults to `pool.ntp.org`;
+  you can change it to a regional pool (for example `nl.pool.ntp.org`) or
+  a server on your own network.
+- **Sync now** — request an immediate synchronization instead of waiting
+  for the next automatic check.
+- **Last sync** — shows when the clock was last set from the network.
+
+Once enabled and connected, the Uberlogger synchronizes shortly after it
+joins the network and then re-checks about once per hour.
+
+:::note
+As with manual synchronization, the time is stored in **UTC**. If a
+recording is in progress when an NTP update arrives, the Uberlogger keeps
+using its current clock for that recording and applies the corrected time
+once logging stops, so an ongoing log is never disrupted.
+:::
+
+---
+
 ## Channel configuration
 
 ### Sample frequency and resolution
