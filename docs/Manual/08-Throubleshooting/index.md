@@ -63,6 +63,7 @@
     <li><strong>Check Proximity:</strong> Ensure you are within range of the Uberlogger's hotspot signal. Walls or obstacles can degrade signal quality.</li>
     <li><strong>Reboot the Uberlogger:</strong> Power-cycle or reset the Uberlogger to refresh its settings and try connecting again.</li>
     <li><strong>Check for Interference:</strong> If you are in an area with multiple Wi-Fi networks, check if the Uberlogger hotspot channel is not interfering with another network. You can change the network channel as described <a href="Configuration#hotspot-wi-fi-channel">here</a>.</li>
+    <li><strong>Hidden SSID:</strong> If the <code>Uberlogger-XXXXXXXX</code> network does not appear in your Wi-Fi list at all, the <a href="Configuration#hide-the-hotspot-ssid">hide-SSID option</a> may be enabled. Add the network manually and type the SSID, or hold the "mode" button for 5 seconds to restore the broadcast (visible) defaults.</li>
   </ul>
 
 </details>
