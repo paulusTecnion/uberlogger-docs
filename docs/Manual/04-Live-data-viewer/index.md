@@ -65,6 +65,8 @@ your current plot view and download it as a PNG image.
 
 ## Live time window
 
+![The live-view control bar: time-window buttons, Clear button and live/connection indicator](media/liveview-controls.png)
+
 From firmware **v1.3.2** on, a row of buttons above the chart
 (**1m / 5m / 15m / 1h / All**) sets how much recent history is shown. The
 chart follows the newest data ("live"); zooming or panning pauses

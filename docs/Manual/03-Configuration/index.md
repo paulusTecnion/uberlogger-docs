@@ -57,6 +57,8 @@ NTP only works when the Uberlogger is connected to your own network as a
 there is no internet connection, so automatic synchronization is not
 available.
 
+![The Network time (NTP) settings on the Network sub-tab of the Configuration page](media/ntp-settings.png)
+
 The settings live on the **Network** sub-tab of the Configuration page:
 
 - **Automatic time sync** — enable or disable NTP. Enabled by default.
@@ -356,6 +358,8 @@ By default the hotspot broadcasts its network name (`Uberlogger-XXXXXXXX`),
 so it appears in the Wi-Fi network list of nearby devices. Enable **Hide
 hotspot network name (SSID)** under the Network tab if you would rather the
 hotspot not advertise itself.
+
+![The Hide hotspot network name (SSID) option on the Network tab](media/hide-hotspot-ssid.png)
 
 When the SSID is hidden, the hotspot keeps working exactly as before, but it
 no longer shows up in Wi-Fi scan lists. To connect, you must add the network
