@@ -61,7 +61,10 @@ available.
 
 The settings live on the **Network** sub-tab of the Configuration page:
 
-- **Automatic time sync** — enable or disable NTP. Enabled by default.
+- **Automatic time sync** — turn NTP on or off. It is only available in
+  *Hotspot + Client* or *Client mode*; in hotspot-only mode (the factory
+  default, with no network to reach) it is greyed out, so enable it after you
+  set up a Wi-Fi client connection.
 - **NTP server** — which time server to use. Defaults to `pool.ntp.org`;
   you can change it to a regional pool (for example `nl.pool.ntp.org`) or
   a server on your own network.
