@@ -176,7 +176,7 @@ Enabling/disabling channels is only available from v1.0.4 on.
 
 #### Channel labels
 
-It's possible to change the labels of the channels. A maximum lenght of 16 characters is supported. No spaces or special characters are allowed, except hyphens '-' and underscores '\_'. The labels will be used in the CSVs that are created directly by the Uberlogger or using the conversion script.
+It's possible to change the labels of the channels. A maximum lenght of 16 characters is supported. No spaces or special characters are allowed, except hyphens '-' and underscores '\_'. The labels will be used in the CSVs that are created directly by the Uberlogger or using the conversion script. From firmware **v1.3.3** on, the labels are also shown in the [Live data viewer](../04-Live-data-viewer/index.md) (value list and chart legend).
 
 :::info Note
 Channel labels are only available from v1.2.0 on.

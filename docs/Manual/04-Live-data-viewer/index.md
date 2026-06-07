@@ -25,6 +25,12 @@ On the Live data tab you can see the current data measured by
 the Uberlogger. On the right the legend of the channels is shown. To show or hide signals, click on the signals in the legend to toggle
 them on or off.
 
+From firmware **v1.3.3** on, channels you have labelled in the
+[Configuration](../03-Configuration/index.md) are shown by their label
+(for example `Inlet (T1)`) in both the legend and the value list. Hover a
+signal on the chart to read its exact value at the cursor; crosshair lines
+mark the corresponding time and value on the axes.
+
 ![A screenshot of a computer Description automatically generated](media/image30.png)
 
 When you hover over the chart, you see a variety of icons popping up on
