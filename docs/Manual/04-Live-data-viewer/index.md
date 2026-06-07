@@ -31,6 +31,8 @@ From firmware **v1.3.3** on, channels you have labelled in the
 signal on the chart to read its exact value at the cursor; crosshair lines
 mark the corresponding time and value on the axes.
 
+![The live data view showing channel labels (e.g. "Inlet (T1)") in the value list and chart legend](media/channel-labels.png)
+
 ![A screenshot of a computer Description automatically generated](media/image30.png)
 
 When you hover over the chart, you see a variety of icons popping up on
