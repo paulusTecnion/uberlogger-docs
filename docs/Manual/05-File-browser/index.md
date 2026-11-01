@@ -1,21 +1,38 @@
 # File browser
 
-You can browse, download and delete files in the file browser. This requires the SD-card to be inserted and mounted in the Uberlogger.
+The **Files** tab lists the folders and files on the SD card with their
+size, and the free space on the card. This requires the SD card to be
+inserted and mounted in the Uberlogger.
 
 :::note Note
 
-You can only use the file browser, format and Unmount SD-card buttons while the Uberlogger is idle, so not logging, calibrating or formatting the SD-card.
+You can only download, delete, format and unmount while the Uberlogger is
+idle, so not while logging, calibrating or formatting the SD card.
 :::
 
-![](media/file-browser.png)
-:::
+![The Files tab](media/file-browser.png)
 
-By default, the last available page in the file list is shown with the latest files at the bottom. Download files by clicking on `Download` and delete them with `delete` using the links indicated in the row next to the filename.
+- Click a folder to open it. Use the path above the list (**SD card** › …)
+  to go back.
+- **Download:** click the download icon next to a file. To view a CSV file,
+  open it on the Live data tab with **Open CSV…**, see
+  [Viewing CSV files](../04-Live-data-viewer/index.md#viewing-csv-files).
+- **Delete:** click the trash icon and confirm. From firmware **v1.3.4** on,
+  a message tells you when a file could not be deleted.
+- **Refresh** reloads the list.
 
-## Formatting SD-card
+Large folders are split into pages; use the page numbers below the list.
 
-To format the SD-card you can click the `Format SD-card` button. Formatting of the SD-card may take up 30 seconds and currently no feedback is given when done.
+## Formatting the SD card
 
-## Unmount SD-card
+**Format…** erases all files on the SD card. Formatting may take up to 30
+seconds.
 
-You can unmount the SD-card with the `Unmount SD-card` button. This will safely unmount the SD-card after you can take it out of the Uberlogger. To remount the SD-card, simply take it out of the Uberlogger and reinsert it.
+## Unmounting the SD card
+
+**Unmount**, or the eject icon next to the SD card status in the top bar,
+safely unmounts the SD card so you can take it out of the Uberlogger. To
+mount it again, take it out and reinsert it.
+
+The SD card status in the top bar shows how full the card is and how much
+space is free.

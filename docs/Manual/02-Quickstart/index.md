@@ -51,14 +51,10 @@ By default the Uberlogger is set to "Continuous measurement" mode. With this you
 1.  Pressing the "mode" button on the side of the Uberlogger for
     about 1 second to start logging.
 
-2.  Pressing "Start logging" on the top right corner of the user
-    interface:
+2.  Pressing **Start logging** in the top right corner of the web
+    interface. The button is available on every page:
 
-> ![](media/image7.png)
-
-3.  Going to the `File browser` tab inside the and click on "Start logging":
-
-> ![](media/image8.png)
+> ![The Start logging button](media/start-logging.png)
 >
 > The green LED on the Uberlogger should blink at an interval of around
 > 1 second to indicate it is logging.
@@ -67,21 +63,21 @@ By default the Uberlogger is set to "Continuous measurement" mode. With this you
 
   1.  Pressing the mode button for 1 second
 
-  2.  Pressing the stop logging button in the top right corner:
+  2.  Pressing **Stop logging** in the top right corner. While logging, the
+      logger status in the top bar shows **LOGGING**:
 
-> ![](media/image9.png)
-
-3.  Clicking "Stop logging" under the `File browser` tab:
-
-> ![](media/image10.png)
+> ![The top bar while logging, with the Stop logging button](media/header-logging.png)
 
 ## Retrieve your data
 
 Your logged data can be retrieved in the following way.
 
-4.  **Ejecting the SD card:** before you can eject your SD card, you
-    need to unmount the SD card by hitting the "eject" button ![](media/image11.png) at the top
-    of the page or by pressing "unmount" on the `Logging` tab. After this you can insert the SD card into a PC and retrieve the data from there.
+1.  **Ejecting the SD card:** before you take out the SD card, unmount it
+    with the eject icon next to the SD card status at the top of the page
+    (or **Unmount** on the `Files` tab). After this you can insert the SD
+    card into a PC and retrieve the data from there.
+
+> ![The SD card status in the top bar with free space and the eject icon](media/header-sd-card.png)
 
 :::danger Important
 Do not manually eject the SD-card while the
@@ -89,9 +85,10 @@ SD-card is mounted and/or while logging. Failing to do so may
 corrupt your data!
 :::
 
-5.  **Using the file browser:** you can download the csv from the file
-    browser which can be found under the `File browser` tab. This will always show the last page of the files in the directory.
-    ![File browser](media/image16.png)
+2.  **Using the file browser:** you can download the CSV files on the
+    `Files` tab. To view a CSV file, open it on the `Live data` tab with
+    **Open CSV…**.
+    ![The Files tab](media/file-browser.png)
 
 # Connecting inputs
 

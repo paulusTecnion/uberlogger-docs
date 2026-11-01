@@ -104,7 +104,9 @@
 <details>
   <summary><strong>Overview of codes</strong></summary>
 
-  <p>In case of an error, the red LED on the Uberlogger will flash, and you can see the error code on the configuration page. Below is the list of error codes and their meanings.</p>
+  <p>In case of an error, the red LED on the Uberlogger will flash. From firmware v1.3.4 on, the top bar of the web interface also shows the error in red, with a short description and the code. Below is the list of error codes and their meanings.</p>
+
+  <img src={require('./media/header-error.png').default} alt="The top bar showing error 8 in red" style={{maxWidth: '100%'}} />
 
   <p>The codes are bit values, so when more than one error is active at the same time the reported number is the <strong>sum</strong> of the individual codes (for example <code>12</code> means errors <code>4</code> and <code>8</code> are both active).</p>
 
@@ -132,7 +134,7 @@
     <tr>
       <td>8</td>
       <td>Faulty data received from the internal support chip.</td>
-      <td>Power-cycle the device. If it persists, contact <a href="https://www.uberlogger.com/contact.html">customer support</a> and report the code.</td>
+      <td>Power-cycle the device. If it happens while logging CSV files at high sample rates (for example 250 Hz) on firmware older than v1.3.4, update the firmware. If it persists, contact <a href="https://www.uberlogger.com/contact.html">customer support</a> and report the code.</td>
     </tr>
     <tr>
       <td>16</td>
@@ -181,6 +183,14 @@
     </tr>
   </table>
 
+</details>
+
+## Firmware update issues
+
+<details>
+  <summary><strong>The firmware update fails or the page says "Update failed"</strong></summary>
+
+  <p>The support chip is updated over an internal connection that can be disturbed by signals on the inputs. Disconnect all sensors and signals from the AIN / NTC and DIO inputs, switch the Uberlogger off and on again, and retry the update. See <a href="/Manual/Firmware-update">Firmware update</a>. If it keeps failing, contact <a href="https://www.uberlogger.com/contact.html">customer support</a>.</p>
 </details>
 
 ## Customer Support

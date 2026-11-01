@@ -4,10 +4,13 @@ id: livedataviewer
 
 # Live Data viewer
 
-Your Uberlogger is set to display all live data from your channel inputs
-by default. If any NTCs are enabled, the temperature will be shown in
-degrees Celsius. You can also see live values during logging. Refresh
-rates are always limited to 1 Hz.
+The **Live data** tab shows all enabled channels in one chart: voltages on
+the left axis, temperatures (NTC) on the right axis in degrees Celsius, and
+the digital inputs as separate lanes below. You also see live values while
+logging. The live view refreshes once per second.
+
+From firmware **v1.3.4** on, the same chart also opens CSV log files, see
+[Viewing CSV files](#viewing-csv-files).
 
 ---
 
@@ -19,87 +22,86 @@ When logging data and having a sample frequency of 1, 2 or 5 Hz, it may take up 
 
 ---
 
-![A screenshot of a computer Description automatically generated](media/image29.png)
+![The Live data tab: one chart with voltages on the left axis, temperatures on the right axis and the digital inputs below](media/live-view.png)
 
-On the Live data tab you can see the current data measured by
-the Uberlogger. On the right the legend of the channels is shown. To show or hide signals, click on the signals in the legend to toggle
-them on or off.
+## Live values and channel labels
 
-From firmware **v1.3.3** on, channels you have labelled in the
-[Configuration](../03-Configuration/index.md) are shown by their label
-(for example `Inlet (T1)`) in both the legend and the value list. Hover a
-signal on the chart to read its exact value at the cursor; crosshair lines
-mark the corresponding time and value on the axes.
+The values under the chart are the latest reading of each channel. Channels
+you have labelled in the [Configuration](../03-Configuration/index.md) are
+shown by their label, for example `Oven (AIN1)`. Click a channel name to hide
+or show it in the chart.
 
-![The live data view showing channel labels (e.g. "Inlet (T1)") in the value list and chart legend](media/channel-labels.png)
+![The live values with channel labels under the chart](media/channel-labels.png)
 
-![A screenshot of a computer Description automatically generated](media/image30.png)
+When you hover the chart, the values show the moment under the cursor
+instead.
 
-When you hover over the chart, you see a variety of icons popping up on
-the right.
+## Time window
 
-![](media/image31.png)
+![The toolbar above the chart: time window, Clear, Live indicator, image export and Open CSV](media/liveview-controls.png)
 
-You can zoom and move around the chart as described next.
+The buttons **1m / 5m / 15m / 1h / All** set how much recent history is
+shown. "All" shows the full retained history, up to about 6 hours.
 
-## Zooming
+## Inspecting the data
 
-Box zoom: Click and drag on the plot to draw a rectangle around the area
-you want to zoom into the data. You can also click the
-![](media/image32.png) button on the right corner when hovering over the chart and perform the same action. Zoom In & Out Buttons: On the top-right corner of the plot, you'll find zoom in and zoom out buttons
-![](media/image33.png) that will zoom in or out incrementally.
+- **Pin a moment:** click (or click and hold) on the chart. The chart stops
+  following the live data and a dashed line marks the pinned moment; the
+  values under the chart show that moment. Click **release** to remove the pin.
+- **Zoom:** drag across the chart or use the scroll wheel. On a phone or
+  tablet, use two fingers.
+- **Pan:** hold Shift and drag.
+- **Back to live:** after pinning or zooming, the **Back to live** button
+  (where the Live indicator was) makes the chart follow the newest data again.
+  Double-clicking the chart does the same.
 
-## Panning/Scrolling
+![A pinned moment: the chart is paused, the dashed line marks the pinned time and the Back to live button is shown](media/pinned-point.png)
 
-Drag: Click the pan
-![](media/image34.png)button and drag the plot in any direction
-to pan through the data. You can also click and hold on the x- or y-axis
-and move to the left, right, top or bottom to pan to the direction you
-want.
+## Saving an image
 
-## Reset axis
-
-If you've zoomed in or scrolled and want to get back to the original
-view, use the "Reset Axes" button
-![](media/image35.png), located in the top-right corner of the plot. If you double-click anywhere in the main plotting area, it will reset
-the plot to its original view (like the "Reset Axes" button ![](media/image35.png)). If you
-double-click on an axis, it will auto-scale just that axis.
-
-## Snapshot Button
-
-Clicking the camera icon
-![](media/image36.png) will allow you to take a snapshot of
-your current plot view and download it as a PNG image.
-
-## Live time window
-
-![The live-view control bar: time-window buttons, Clear button and live/connection indicator](media/liveview-controls.png)
-
-From firmware **v1.3.2** on, a row of buttons above the chart
-(**1m / 5m / 15m / 1h / All**) sets how much recent history is shown. The
-chart follows the newest data ("live"); zooming or panning pauses
-following, and double-clicking the plot (or picking a window) resumes it.
-A small indicator next to the buttons shows whether the chart is
-**live** or **paused**. "All" shows the full retained history, up to a
-maximum of about 6 hours.
+The image button next to **Open CSV…** saves the current chart, including the
+channel names and values, as a PNG image.
 
 ## Data history
 
 The live chart keeps roughly the last **6 hours** of data per channel.
 This history is stored in your browser, so it **survives a page refresh**
-and keeps accumulating even while you are on other tabs (File browser,
-Configuration, etc.) — you no longer lose the chart by navigating away or
-reloading.
+and keeps accumulating while you are on other tabs (Files, Configuration).
+When the browser was not receiving data for a while, the chart shows a gap.
 
-## Clearing the chart
-
-Use the **Clear** button above the chart to empty the stored history and
-start the live view from scratch. New samples begin filling the chart
-again immediately.
+Use the **Clear** button to empty the stored history and start the live view
+from scratch.
 
 ## Connection indicator
 
-The status dot next to the time-window buttons reflects the live
-connection to the Uberlogger: it is **green** while data is being
-received and turns **red** ("connection lost") if the browser can no
-longer reach the device.
+The dot next to the time window buttons shows the connection to the
+Uberlogger: it is **green** while data is received and turns **red**
+("connection lost") when the browser can no longer reach the device.
+
+## Viewing CSV files
+
+Use **Open CSV…**, or drop a CSV file anywhere on the page, to view a log
+file in the same chart. Download the file from the
+[Files](../05-File-browser/index.md) tab first. The file is processed in your
+browser; nothing is uploaded to the logger, so this also works for large
+files.
+
+![A CSV log file opened in the viewer](media/csv-viewer.png)
+
+- The line above the chart shows the file name, size, number of rows,
+  duration and sample rate.
+- Times in the file are UTC.
+- Gaps in the timestamps are marked with red lines.
+- Zooming, pinning and saving an image work as in the live view.
+- **Back to live data** returns to the live view.
+
+Very large files need a lot of memory: the viewer warns you before opening a
+file that may be too large for your device.
+
+## Dark mode
+
+The moon icon in the top bar switches between a light and a dark theme. Your
+choice is remembered in the browser; by default the theme follows your
+system setting.
+
+![The live view in dark mode](media/dark-mode.png)

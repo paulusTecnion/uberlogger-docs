@@ -7,7 +7,7 @@ id: configuration
 In the user interface portal, you can configure the Uberlogger under the
 `Configuration` tab:
 
-![A close-up of a sign Description automatically generated](media/image16.png)
+![The Configuration tab in the top bar](media/config-tab.png)
 
 :::info Note
 From firmware v1.3.0 on, the Configuration page is organised as a set of sub-tabs that group related settings together:
@@ -33,7 +33,7 @@ It is important to be aware that the recorded time is stored in Coordinated Univ
 ### Synchronizing the time
 
 If you would like to synchronize your Uberlogger's time with your local
-PC or device you are using, click "Synchronize to local time" ![A close-up of a text Description automatically generated](media/image17.png)
+PC or device you are using, click "Synchronize to local time" ![The System time section with the Synchronize to local time button](media/system-time.png)
 
 ---
 
@@ -57,7 +57,7 @@ NTP only works when the Uberlogger is connected to your own network as a
 there is no internet connection, so automatic synchronization is not
 available.
 
-![The Network time (NTP) settings on the Network sub-tab of the Configuration page](media/ntp-settings.png)
+![The Network time (NTP) settings on the Network tab](media/ntp-settings.png)
 
 The settings live on the **Network** sub-tab of the Configuration page:
 
@@ -92,7 +92,7 @@ You can set the sample rate and resolution by going to "Channel
 configuration" and selecting the desired sample rate and resolution. To
 save the settings, click `Save all settings` or `Save channel settings`.
 
-![A screenshot of a computer Description automatically generated](media/image18.png)
+![Sample rate and resolution on the Acquisition tab](media/sample-rate.png)
 
 #### Sampling frequency
 
@@ -140,7 +140,7 @@ For log frequencies below 1 Hz, you have the ability to either take the sample v
 
 ### Measurement mode
 
-![Measurement modes](media/measurement-mode.png)
+![Measurement mode setting](media/measurement-mode.png)
 
 The UberLogger supports three measurement modes:
 
@@ -164,7 +164,7 @@ This averaging and measurement mode functions are available from v1.2.0 and high
 
 You can set the analog channel mode and voltage range under "Analog channels" as shown below.
 
-![A screenshot of a computer](media/image19.png)
+![The analog and digital channel settings on the Channels tab](media/channels.png)
 
 #### Enable channel
 
@@ -237,7 +237,7 @@ To make a zero-offset calibration, make sure you disconnect all the
 wires from the inputs, including the temperature sensors. Note that you cannot do calibration while logging. Put all the DIP switches of the left DIP switch set to analog IN (down/ "On"). Then, click the `Start calibration` button under `Analog Calibration`, and confirm the message box that you disconnected the wires and put the DIP switches correct. A status message shown under the button will show when the calibration is
 done.
 
-![nothing](media/image22.png)
+![The Analog Calibration section](media/calibration.png)
 
 When the calibration button is pressed, the state of it is shown under it.
 
@@ -277,7 +277,7 @@ With the timestamp mode, the file name will have the form YYYYMMDD_HH-MM-ss-Pref
 
 One can adjust the decimal and separator character. The separtor character will also be taken into consideration when using the raw data conversion script or tool.
 
-![CSV options](media/image29.png)
+![CSV options](media/csv-options.png)
 
 #### Separator character
 
@@ -291,7 +291,7 @@ Choose either dot ('.' default) or comma (','). Note: this option does not have 
 
 By default, the Uberlogger will use your prefix for the file name and the log files will be split in parts. The size of the log file can be set from 200 KB to 2 GB.
 
-![File name and split size](media/image30.png)
+![File name and split size](media/file-name-split.png)
 
 :::info Note
 Note that the file size is approximately the set split size and not exact.
@@ -322,7 +322,7 @@ Changing other (non-mode) settings does **not** restart the device.
 
 ### Hotspot mode
 
-![A white background with black text Description automatically generated](media/image23.png)
+![The Hotspot settings on the Network tab](media/hotspot-settings.png)
 
 In hotspot mode, you can connect to Uberlogger via any device with an
 integrated Wi-Fi adapter and access the control panel through
@@ -342,7 +342,7 @@ secured network.
   Clients must supply this password when joining the hotspot.
 
 Use the security mode selector under the Network tab, set a password if
-applicable, and click `Save Wi-Fi settings` to apply.
+applicable, and click `Save network settings` to apply.
 
 :::caution Important
 If you lose the hotspot password, press and hold the "mode" button for
@@ -392,7 +392,7 @@ When changing the Wi-Fi channel, you need to manually reset the logger to make t
 
 In Hotspot + client mode, the Uberlogger will have its hotspot mode enabled and it can connect to another Wi-Fi network you set. Select `Hotspot + Client mode` and fill in the SSID of the Wi-Fi network you want to connect to:
 
-![A screenshot of a computer Description automatically generated](media/image24.png)
+![Hotspot + Client mode with the client details](media/client-mode.png)
 
 For the client network you can choose between:
 
@@ -411,9 +411,9 @@ For the client network you can choose between:
 
 :::
 
-Press the `Save Wi-Fi settings` button to save the Wi-Fi settings and activate the Wi-Fi mode:
+Press the `Save network settings` button to save the Wi-Fi settings and activate the Wi-Fi mode:
 
-![A computer screen with a mouse pointer and text Description automatically generated](media/image25.png)
+![The Save network settings button](media/save-network.png)
 
 In case when you are connecting to your own Wi-Fi hotspot, you will be able to access the control panel through `<http://IPADDRESS>`, where `IPADDRESS` is the address of the Uberlogger. The link will also be provided by the Uberlogger when the connection to the Access Point is
 successful.
@@ -489,12 +489,12 @@ network. Pick a password you do not reuse anywhere else.
 To restore the default settings of Uberlogger, click the "Restore
 default settings" button.
 
-![A close up of a text Description automatically generated](media/image26.png)
+![The Restore defaults section on the System tab](media/restore-defaults.png)
 
 Please note that the default settings are **not** yet saved,
 until you hit the `Save all settings` button:
 
-![A white background with red and black text Description automatically generated](media/image27.png)
+![The Save all settings section on the System tab](media/save-all.png)
 
 ## Import/export configuration
 
@@ -504,4 +504,4 @@ until you hit the `Save all settings` button:
   from file" button. Click on the button, select the exported JSON
   file and the settings will be imported.
 
-![](media/image28.png)
+![The Import / Export configuration section on the System tab](media/import-export.png)
